@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "410804931401",
+    "project_id": "calculator-2b831",
+    "storage_bucket": "calculator-2b831.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410804931401:android:7b603b0742935f13cc6898",
+        "android_client_info": {
+          "package_name": "com.timbuchalka.calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "410804931401-a5b9ngt7q1nefqtkk49eetdepmmjq5ku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8PfviLm48CdXy1EbuaWQmeX3mpYjFbqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "410804931401-a5b9ngt7q1nefqtkk49eetdepmmjq5ku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

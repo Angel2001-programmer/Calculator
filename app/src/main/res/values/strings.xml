@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="Calculator">Calculator</string>
+    <string name="History">History</string>
+    <string name="title_History">History</string>
+    <string name="title_calculator">Calculator</string>/>
+</resources>
