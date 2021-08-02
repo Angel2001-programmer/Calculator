@@ -187,7 +187,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:inputType="number|numberDecimal"
-        android:text=""
+        android:textAlignment="textEnd"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="@+id/tableLayout"
         app:layout_constraintStart_toStartOf="@+id/tableLayout" />

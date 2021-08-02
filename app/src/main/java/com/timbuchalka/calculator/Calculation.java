@@ -1,9 +1,9 @@
-package com.timbuchalka.calculator.ui;
+package com.timbuchalka.calculator;
 
-public class Member {
-    private String value0;
+public class Calculation {
+     String value0;
 
-    public Member() {
+    public Calculation() {
         this.value0 = value0;
     }
 

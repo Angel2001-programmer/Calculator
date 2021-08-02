@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.timbuchalka.calculator.R;
 import com.timbuchalka.calculator.databinding.FragmentCalulatorBinding;
-import com.timbuchalka.calculator.ui.Member;
+import com.timbuchalka.calculator.Calculation;
 
 public class CalculatorFragment extends Fragment implements View.OnClickListener {
 
@@ -34,7 +34,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     //    String result;
     double sum;
     DatabaseReference reference;
-    Member member;
+    Calculation mCalculation;
 
     Boolean Addition = false, Subtraction = false, Multiplication = false, Division = false, Closed = false;
     private static final String TAG = "MainActivity";
@@ -74,9 +74,9 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         binding.btnDivide.setOnClickListener(this);
         binding.btnEquals.setOnClickListener(this);
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Member");
+        reference = FirebaseDatabase.getInstance().getReference().child("Calculation");
 
-        member=new Member();
+        mCalculation =new Calculation();
         onResume();
 
         return root;
@@ -209,8 +209,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 String calculation = calculation1 + " + " + calculation2 + " = " + integer;
                 Log.d(TAG, "Calculation: " + calculation);
 
-                member.setValue0(calculation);
-                reference.push().setValue(member);
+                mCalculation.setValue0(calculation);
+                reference.push().setValue(mCalculation);
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
 
             } else {
@@ -219,8 +219,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 String calculation = calculation1 + " + " + calculation2 + " = " + result;
                 Log.d(TAG, "Calculation: " + calculation);
 
-                member.setValue0(calculation);
-                reference.push().setValue(member);
+                mCalculation.setValue0(calculation);
+                reference.push().setValue(mCalculation);
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
             }
 
@@ -240,8 +240,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 String calculation = calculation1 + " - " + calculation2 + " = " + integer;
                 Log.d(TAG, "Calculation: " + calculation);
 
-                member.setValue0(calculation);
-                reference.push().setValue(member);
+                mCalculation.setValue0(calculation);
+                reference.push().setValue(mCalculation);
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
             } else {
                 Log.d(TAG, "is old: " + result);
@@ -249,8 +249,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 String calculation = calculation1 + " - " + calculation2 + " = " + result;
                 Log.d(TAG, "Calculation: " + calculation);
 
-                member.setValue0(calculation);
-                reference.push().setValue(member);
+                mCalculation.setValue0(calculation);
+                reference.push().setValue(mCalculation);
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
             }
 
@@ -268,8 +268,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 String calculation = calculation1 + " X " + calculation2 + " = " + integer;
                 Log.d(TAG, "Calculation: " + calculation);
 
-                member.setValue0(calculation);
-                reference.push().setValue(member);
+                mCalculation.setValue0(calculation);
+                reference.push().setValue(mCalculation);
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
             } else {
                 Log.d(TAG, "is old: " + result);
@@ -277,8 +277,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 String calculation = calculation1 + " X " + calculation2 + " = " + result;
                 Log.d(TAG, "Calculation: " + calculation);
 
-                member.setValue0(calculation);
-                reference.push().setValue(member);
+                mCalculation.setValue0(calculation);
+                reference.push().setValue(mCalculation);
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
             }
 
@@ -297,8 +297,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 String calculation = calculation1 + " ÷ " + calculation2 + " = " + integer;
                 Log.d(TAG, "Calculation: " + calculation);
 
-                member.setValue0(calculation);
-                reference.push().setValue(member);
+                mCalculation.setValue0(calculation);
+                reference.push().setValue(mCalculation);
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
             } else {
                 Log.d(TAG, "is odd: " + result);
@@ -306,8 +306,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 String calculation = calculation1 + " ÷ " + calculation2 + " = " + result;
                 Log.d(TAG, "Calculation: " + calculation);
 
-                member.setValue0(calculation);
-                reference.push().setValue(member);
+                mCalculation.setValue0(calculation);
+                reference.push().setValue(mCalculation);
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
                 onPause();
             }
@@ -319,14 +319,14 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         super.onResume();
 
         Log.d(TAG, "onResume: called");
-        reference = FirebaseDatabase.getInstance().getReference("Member");
+        reference = FirebaseDatabase.getInstance().getReference("Calculation");
         reference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Log.d(TAG, "onComplete: " + "Database data is removed.");
+                    Log.d(TAG, "onComplete: " + "Database: data is removed.");
                 } else {
-                    Log.d(TAG, "onComplete: " + "Database data failed.");
+                    Log.d(TAG, "onComplete: " + "Database: failed to delete data.");
 
                 }
             }

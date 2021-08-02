@@ -1,11 +1,10 @@
 package com.timbuchalka.calculator.ui.history;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,8 +15,15 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.timbuchalka.calculator.Calculation;
+import com.timbuchalka.calculator.MyAdapter;
+import com.timbuchalka.calculator.R;
 import com.timbuchalka.calculator.databinding.FragmentHistoryBinding;
-import com.timbuchalka.calculator.ui.calculator.CalculatorFragment;
 
 import java.util.ArrayList;
 
@@ -26,7 +32,12 @@ public class HistoryFragment extends Fragment {
     private HistoryViewModel historyViewModel;
     private FragmentHistoryBinding binding;
     private RecyclerView recyclerView;
-    private static final String TAG = "HistoryFragment";
+    private static final String TAG = "SettingsFragment";
+
+    RecyclerView mRecyclerView;
+    DatabaseReference mDatabaseReference;
+    MyAdapter mMyAdapter;
+    ArrayList<Calculation> mList;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -36,11 +47,30 @@ public class HistoryFragment extends Fragment {
         binding = FragmentHistoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHistory;
-        historyViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        mRecyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("Calculation");
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        mList = new ArrayList<>();
+        mMyAdapter = new MyAdapter(getContext(), mList);
+        mRecyclerView.setAdapter(mMyAdapter);
+
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Calculation calculation = dataSnapshot.getValue(Calculation.class);
+                    mList.add(calculation);
+                }
+
+                mMyAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
 
@@ -52,6 +82,4 @@ public class HistoryFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
-
 }
