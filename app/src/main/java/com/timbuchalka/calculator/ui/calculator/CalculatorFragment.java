@@ -47,7 +47,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         binding = FragmentCalulatorBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
+        final TextView textView = binding.textCalculator;
         calculatorViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

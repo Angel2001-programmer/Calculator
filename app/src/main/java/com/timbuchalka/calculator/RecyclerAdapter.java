@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -42,12 +43,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-
+        public CardView cardView;
         TextView tvCalculation;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
             tvCalculation = itemView.findViewById(R.id.tvCalculation);
         }
     }
