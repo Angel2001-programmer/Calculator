@@ -7,8 +7,12 @@
         android:title="@string/Calculator" />
 
     <item
-        android:id="@+id/navigation_History"
+        android:id="@+id/navigation_history"
         android:icon="@drawable/outline_history_24"
         android:title="@string/History" />
+
+    <item android:id="@+id/navigation_settings"
+        android:icon="@drawable/outline_settings_24"
+        android:title="@string/Settings" />
 
 </menu>

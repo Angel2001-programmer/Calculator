@@ -16,8 +16,10 @@
         android:name="com.timbuchalka.calculator.ui.history.HistoryFragment"
         android:label="@string/title_History"
         tools:layout="@layout/fragment_history" />
+
     <fragment
         android:id="@+id/navigation_Settings"
         android:name="com.timbuchalka.calculator.ui.settings.SettingsFragment"
-        android:label="Settings" />
+        android:label="@string/Settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

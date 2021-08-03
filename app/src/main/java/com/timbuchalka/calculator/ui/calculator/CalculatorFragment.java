@@ -36,7 +36,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     DatabaseReference reference;
     Calculation mCalculation;
 
-    Boolean Addition = false, Subtraction = false, Multiplication = false, Division = false, Closed = false;
+    Boolean Addition = false, AdditionEqual = false, Subtraction = false, Multiplication = false, Division = false, Closed = false;
     private static final String TAG = "MainActivity";
 
     public View onCreateView(@NonNull LayoutInflater inflater,

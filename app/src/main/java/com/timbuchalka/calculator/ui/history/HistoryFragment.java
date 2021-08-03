@@ -1,6 +1,5 @@
 package com.timbuchalka.calculator.ui.history;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.timbuchalka.calculator.Calculation;
-import com.timbuchalka.calculator.MyAdapter;
+import com.timbuchalka.calculator.RecyclerAdapter;
 import com.timbuchalka.calculator.R;
 import com.timbuchalka.calculator.databinding.FragmentHistoryBinding;
 
@@ -36,7 +33,7 @@ public class HistoryFragment extends Fragment {
 
     RecyclerView mRecyclerView;
     DatabaseReference mDatabaseReference;
-    MyAdapter mMyAdapter;
+    RecyclerAdapter mRecyclerAdapter;
     ArrayList<Calculation> mList;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -47,14 +44,16 @@ public class HistoryFragment extends Fragment {
         binding = FragmentHistoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        final TextView textView = binding.textHistory;
+
         mRecyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("Calculation");
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mList = new ArrayList<>();
-        mMyAdapter = new MyAdapter(getContext(), mList);
-        mRecyclerView.setAdapter(mMyAdapter);
+        mRecyclerAdapter = new RecyclerAdapter(getContext(), mList);
+        mRecyclerView.setAdapter(mRecyclerAdapter);
 
         mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -65,7 +64,7 @@ public class HistoryFragment extends Fragment {
                     mList.add(calculation);
                 }
 
-                mMyAdapter.notifyDataSetChanged();
+                mRecyclerAdapter.notifyDataSetChanged();
             }
 
             @Override
