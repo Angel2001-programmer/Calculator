@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="20dp"
-        android:text="Please select a colour."
+        android:text="@string/string_please_select_a_colour"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintStart_toStartOf="parent" />
@@ -29,71 +29,94 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imgv_pattle_green"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="8dp"
-                app:srcCompat="@drawable/ellipse_green_50" />
+            <ImageButton
+                android:id="@+id/ib_Blue"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_blue"
+                android:contentDescription="TODO"
+                android:tag="0"
+                tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="16dp" />
 
-            <ImageView
-                android:id="@+id/imgv_pattle_orange"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ellipse_orange_50" />
 
-            <ImageView
-                android:id="@+id/imgv_pattle_yellow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ellipse_yellow_50" />
+            <ImageButton
+                android:id="@+id/ib_Orange"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_orange"
+                android:tag="1"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <ImageButton
+                android:id="@+id/ib_LTGreen"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/button_ltgreen"
+                android:tag="2"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="16dp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp">
+            android:layout_marginTop="8dp">
 
-            <ImageView
-                android:id="@+id/imgv_pattle_grey"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="8dp"
-                app:srcCompat="@drawable/ellipse_grey_50" />
+            <ImageButton
+                android:id="@+id/ib_Red"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginRight="10dp"
+                android:tag="3"
+                android:background="@drawable/button_red"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="16dp" />
 
-            <ImageView
-                android:id="@+id/imgv_pattle_blue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="8dp"
-                app:srcCompat="@drawable/ellipse_blue_50" />
+            <ImageButton
+                android:id="@+id/ib_Green"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginRight="10dp"
+                android:tag="4"
+                android:background="@drawable/button_green"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="16dp" />
 
-            <ImageView
-                android:id="@+id/imgv_pattle_purple"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ellipse_purple_50" />
+            <ImageButton
+                android:id="@+id/ib_Yellow"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/button_yellow"
+                android:tag="5"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="16dp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp">
+            android:layout_marginTop="8dp">
 
-            <ImageView
-                android:id="@+id/imgv_pattle_red"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="8dp"
-                app:srcCompat="@drawable/ellipse_red_50" />
-
-            <ImageView
-                android:id="@+id/imgv_pattle_ltgreen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="8dp"
-                app:srcCompat="@drawable/ellipse_ltgreen_50" />
-
+            <ImageButton
+                android:id="@+id/ib_Grey"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/button_grey"
+                android:tag="6"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="16dp" />
         </TableRow>
 
     </TableLayout>
@@ -107,4 +130,5 @@
         android:text="Confirm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tableLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

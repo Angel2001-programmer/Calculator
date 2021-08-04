@@ -7,13 +7,16 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.timbuchalka.calculator.databinding.ActivityBackgroundColoursBinding;
 import com.timbuchalka.calculator.databinding.ActivityMainBinding;
 
-public class BackgroundColours extends AppCompatActivity {
+public class BackgroundColours extends AppCompatActivity implements View.OnClickListener {
     ActivityBackgroundColoursBinding binding;
     private static final String TAG = "BackgroundColours";
+    Boolean buttonEnabled = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,45 +29,42 @@ public class BackgroundColours extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        binding.confirmBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()){
-                    case R.id.imgv_pattle_blue:
-                        Log.d(TAG, "Blue pattle: " + "was clicked.");
-                        break;
+        binding.ibBlue.setOnClickListener(this);
+        binding.ibGreen.setOnClickListener(this);
+        binding.ibGrey.setOnClickListener(this);
+        binding.ibLTGreen.setOnClickListener(this);
+        binding.ibOrange.setOnClickListener(this);
+        binding.ibRed.setOnClickListener(this);
+        binding.ibYellow.setOnClickListener(this);
 
-                    case R.id.imgv_pattle_grey:
-                        Log.d(TAG, "Grey pattle: " + "was clicked.");
-                        break;
-
-                    case R.id.imgv_pattle_green:
-                        Log.d(TAG, "Green pattle: " + "was clicked.");
-                        break;
-
-                    case R.id.imgv_pattle_red:
-                        Log.d(TAG, "Red pattle: " + "was clicked.");
-                        break;
-
-                    case R.id.imgv_pattle_orange:
-                        Log.d(TAG, "Orange pattle: " + "was clicked.");
-                        break;
-
-                    case R.id.imgv_pattle_yellow:
-                        Log.d(TAG, "Yellow pattle: " + "was clicked.");
-                        break;
-
-                    case R.id.imgv_pattle_purple:
-                        Log.d(TAG, "Purple pattle: " + "was clicked.");
-                        break;
-
-                    case R.id.imgv_pattle_ltgreen:
-                        Log.d(TAG, "light Green pattle: " + "was clicked.");
-                        break;
-                }
-            }
-        });
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ib_Blue:
+                Log.d(TAG, "onClick: " + "Blue is clicked");
+
+                break;
+            case R.id.ib_Green:
+                Log.d(TAG, "onClick: " + "Green is clicked");
+                break;
+            case R.id.ib_Grey:
+                Log.d(TAG, "onClick: " + "Grey is clicked");
+                break;
+            case R.id.ib_LTGreen:
+                Log.d(TAG, "onClick: " + "LTGreen is clicked");
+                break;
+            case R.id.ib_Yellow:
+                Log.d(TAG, "onClick: " + "Yellow is clicked");
+                break;
+            case R.id.ib_Orange:
+                Log.d(TAG, "onClick: " + "Orange is clicked");
+                break;
+            case R.id.ib_Red:
+                Log.d(TAG, "onClick: " + "Red is clicked");
+                break;
+        }
+    }
 }
