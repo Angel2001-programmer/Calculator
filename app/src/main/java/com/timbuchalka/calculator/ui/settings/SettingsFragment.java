@@ -1,5 +1,6 @@
 package com.timbuchalka.calculator.ui.settings;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.timbuchalka.calculator.BackgroundColours;
 import com.timbuchalka.calculator.databinding.FragmentSettingsBinding;
 
 public class SettingsFragment extends Fragment {
@@ -36,20 +38,27 @@ public class SettingsFragment extends Fragment {
 
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
             }
         });
 
-//        binding.switchNightmode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    Log.d(TAG, "onCheckedChanged: " + isChecked + "Button enabled");
-//                } else {
-//                    Log.d(TAG, "onCheckedChanged: " + isChecked + "Button disabled");
-//                }
-//            }
-//        });
+        binding.switchNightmode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    Log.d(TAG, "onCheckedChanged: " + isChecked + "Button enabled");
+                } else {
+                    Log.d(TAG, "onCheckedChanged: " + isChecked + "Button disabled");
+                }
+            }
+        });
+
+        binding.textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), BackgroundColours.class);
+                startActivity(intent);
+            }
+        });
 
         return root;
 

@@ -43,7 +43,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        public CardView cardView;
         TextView tvCalculation;
 
         public MyViewHolder(@NonNull View itemView) {

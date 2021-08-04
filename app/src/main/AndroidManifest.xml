@@ -19,6 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".BackgroundColours"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_background" >
+        </activity>
     </application>
 
 </manifest>
