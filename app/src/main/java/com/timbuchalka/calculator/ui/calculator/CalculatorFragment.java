@@ -78,7 +78,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
         mCalculation =new Calculation();
         onResume();
-
         return root;
     }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -35,7 +36,7 @@
                 android:layout_height="90dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/button_blue"
-                android:contentDescription="TODO"
+                android:contentDescription="Blue Background"
                 android:tag="0"
                 tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck"
                 tools:layout_editor_absoluteX="120dp"
