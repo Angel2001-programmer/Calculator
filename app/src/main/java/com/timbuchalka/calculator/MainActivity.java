@@ -1,5 +1,6 @@
 package com.timbuchalka.calculator;
 
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,5 +36,14 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+        Boolean Red = getIntent().getBooleanExtra("red");
+        Boolean Blue = getIntent().getBooleanExtra("blue");
+        Boolean Green = getIntent().getBooleanExtra("orange");
+        Boolean Orange = getIntent().getBooleanExtra("yellow");
+        Boolean Yellow = getIntent().getBooleanExtra("green");
+        Boolean Grey = getIntent().getBooleanExtra("grey");
+        Boolean LTGreen = getIntent().getBooleanExtra("light green");
+
+//        binding.background.setBackground(gradientDrawable);
     }
 }

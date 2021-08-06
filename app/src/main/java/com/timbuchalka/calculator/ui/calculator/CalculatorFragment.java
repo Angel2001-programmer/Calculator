@@ -1,5 +1,7 @@
 package com.timbuchalka.calculator.ui.calculator;
 
+import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -76,8 +78,9 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
         reference = FirebaseDatabase.getInstance().getReference().child("Calculation");
 
-        mCalculation =new Calculation();
+        mCalculation = new Calculation();
         onResume();
+
         return root;
     }
 
