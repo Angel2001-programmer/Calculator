@@ -8,23 +8,23 @@
 
     <TextView
         android:id="@+id/tvColour"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginBottom="20dp"
         android:text="@string/string_please_select_a_colour"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/confirm_BTN"
-        app:layout_constraintStart_toStartOf="@+id/tvColour">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -75,8 +75,8 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginRight="10dp"
-                android:tag="3"
                 android:background="@drawable/button_red"
+                android:tag="3"
                 tools:ignore="SpeakableTextPresentCheck"
                 tools:layout_editor_absoluteX="120dp"
                 tools:layout_editor_absoluteY="16dp" />
@@ -86,8 +86,8 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginRight="10dp"
-                android:tag="4"
                 android:background="@drawable/button_green"
+                android:tag="4"
                 tools:ignore="SpeakableTextPresentCheck"
                 tools:layout_editor_absoluteX="120dp"
                 tools:layout_editor_absoluteY="16dp" />
@@ -118,6 +118,18 @@
                 tools:ignore="SpeakableTextPresentCheck"
                 tools:layout_editor_absoluteX="120dp"
                 tools:layout_editor_absoluteY="16dp" />
+
+            <ImageButton
+                android:id="@+id/ib_Purple"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_purple"
+                android:contentDescription="Blue Background"
+                android:tag="0"
+                tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="16dp" />
         </TableRow>
 
     </TableLayout>
@@ -126,10 +138,26 @@
         android:id="@+id/confirm_BTN"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="8dp"
         android:text="Confirm"
+        app:layout_constraintBottom_toTopOf="@+id/reset_BTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/reset_BTN"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="112dp"
+        android:text="Reset Background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tableLayout" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

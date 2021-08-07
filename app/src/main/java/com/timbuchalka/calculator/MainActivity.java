@@ -18,6 +18,7 @@ import com.timbuchalka.calculator.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    boolean Red, Blue, Green, Orange, Yellow, Grey, LTGreen, Purple, original;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +37,92 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        Boolean Red = getIntent().getBooleanExtra("red");
-        Boolean Blue = getIntent().getBooleanExtra("blue");
-        Boolean Green = getIntent().getBooleanExtra("orange");
-        Boolean Orange = getIntent().getBooleanExtra("yellow");
-        Boolean Yellow = getIntent().getBooleanExtra("green");
-        Boolean Grey = getIntent().getBooleanExtra("grey");
-        Boolean LTGreen = getIntent().getBooleanExtra("light green");
+        Red = getIntent().getBooleanExtra("red", false);
+        Blue = getIntent().getBooleanExtra("blue", false);
+        Green = getIntent().getBooleanExtra("green", false);
+        Orange = getIntent().getBooleanExtra("orange", false);
+        Yellow = getIntent().getBooleanExtra("yellow", false);
+        Grey = getIntent().getBooleanExtra("grey", false);
+        LTGreen = getIntent().getBooleanExtra("light green", false);
+        Purple = getIntent().getBooleanExtra("purple", false);
+        original = getIntent().getBooleanExtra("white", false);
+
+        if (Red) {
+            binding.background.setBackgroundResource(R.drawable.red);
+        } else if (Blue) {
+            binding.background.setBackgroundResource(R.drawable.blue);
+//            Red = false;
+//            Blue = false;
+//            Green = false;
+//            Orange = false;
+//            Yellow = false;
+//            Grey = false;
+//            LTGreen = false;
+//            Purple = false;
+        } else if (Green) {
+            binding.background.setBackgroundResource(R.drawable.green);
+//            Red = false;
+//            Blue = false;
+//            Green = false;
+//            Orange = false;
+//            Yellow = false;
+//            Grey = false;
+//            LTGreen = false;
+//            Purple = false;
+        } else if (Orange) {
+            binding.background.setBackgroundResource(R.drawable.redorange);
+//            Red = false;
+//            Blue = false;
+//            Green = false;
+//            Orange = false;
+//            Yellow = false;
+//            Grey = false;
+//            LTGreen = false;
+//            Purple = false;
+        } else if (Yellow) {
+            binding.background.setBackgroundResource(R.drawable.yellow);
+//            Red = false;
+//            Blue = false;
+//            Green = false;
+//            Orange = false;
+//            Yellow = false;
+//            Grey = false;
+//            LTGreen = false;
+//            Purple = false;
+        } else if (Grey) {
+            binding.background.setBackgroundResource(R.drawable.grey);
+//            Red = false;
+//            Blue = false;
+//            Green = false;
+//            Orange = false;
+//            Yellow = false;
+//            Grey = false;
+//            LTGreen = false;
+//            Purple = false;
+        } else if (LTGreen) {
+            binding.background.setBackgroundResource(R.drawable.lightgreen);
+//            Red = false;
+//            Blue = false;
+//            Green = false;
+//            Orange = false;
+//            Yellow = false;
+//            Grey = false;
+//            LTGreen = false;
+//            Purple = false;
+        } else if (Purple) {
+            binding.background.setBackgroundResource(R.drawable.purple);
+//            Red = false;
+//            Blue = false;
+//            Green = false;
+//            Orange = false;
+//            Yellow = false;
+//            Grey = false;
+//            LTGreen = false;
+//            Purple = false;
+        } else if (original) {
+            binding.background.setBackgroundResource(R.color.white);
+        }
+
 
 //        binding.background.setBackground(gradientDrawable);
     }

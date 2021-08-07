@@ -1,33 +1,19 @@
 package com.timbuchalka.calculator;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.fragment.app.Fragment;
-
 import com.google.android.material.snackbar.Snackbar;
 import com.timbuchalka.calculator.databinding.ActivityBackgroundColoursBinding;
-import com.timbuchalka.calculator.databinding.ActivityMainBinding;
-import com.timbuchalka.calculator.ui.calculator.CalculatorFragment;
+
 
 public class BackgroundColours extends AppCompatActivity implements View.OnClickListener {
     ActivityBackgroundColoursBinding binding;
-    private static final String TAG = "BackgroundColours";
-    Boolean Blue = false, Red = false, Yellow = false, Green = false, LTGreen = false, Orange = false, Grey = false;
+    private static final String TAG = "BCFragment";
+    Boolean Blue = false, Red = false, Yellow = false, Green = false, LTGreen = false, Orange = false, Grey = false, Purple = false, original = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +30,7 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
         binding.ibRed.setOnClickListener(this);
         binding.ibYellow.setOnClickListener(this);
         binding.confirmBTN.setOnClickListener(this);
-
+        binding.resetBTN.setOnClickListener(this);
     }
 
     @Override
@@ -52,65 +38,86 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
         switch (v.getId()) {
             case R.id.ib_Blue:
                 Blue = true;
-                Snackbar.make(v, "Colour was set to Blue," + "\n return to the Calculator section to see the colour.",
+                Snackbar.make(v, "Colour blue was selected, " + "\n to continue press the confirm button",
                         Snackbar.LENGTH_LONG)
                         .show();
-                moveData();
-                Log.d(TAG, "onClick: " + "Blue is clicked");
+                Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
                 break;
 
             case R.id.ib_Green:
                 Green = true;
-                Snackbar.make(v, "Colour was set to Green," + "\n return to the Calculator section to see the colour.",
+                Snackbar.make(v, "Colour green was selected, " + "\n to continue press the confirm button",
                         Snackbar.LENGTH_LONG)
                         .show();
-                moveData();
-                Log.d(TAG, "onClick: " + "Green is clicked");
+                Log.d(TAG, "onClick: " + Green + "Green is clicked");
                 break;
 
             case R.id.ib_Grey:
                 Grey = true;
-                Snackbar.make(v, "Colour was set to Grey," + "\n return to the Calculator section to see the colour.",
+                Snackbar.make(v, "Colour grey was selected, " + "\n to continue press the confirm button",
                         Snackbar.LENGTH_LONG)
                         .show();
-                moveData();
-                Log.d(TAG, "onClick: " + "Grey is clicked");
+                Log.d(TAG, "onClick: " + Grey + "Grey is clicked");
                 break;
 
             case R.id.ib_LTGreen:
                 LTGreen = true;
-                Snackbar.make(v, "Colour was set to Light Green," + "\n return to the Calculator section to see the colour.",
+                Snackbar.make(v, "Colour light green was selected, " + "\n to continue press the confirm button",
                         Snackbar.LENGTH_LONG)
                         .show();
-                moveData();
-                Log.d(TAG, "onClick: " + "LTGreen is clicked");
+                Log.d(TAG, "onClick: " + LTGreen + "LTGreen is clicked");
                 break;
 
             case R.id.ib_Yellow:
                 Yellow = true;
-                Snackbar.make(v, "Colour was set to Yellow," + "\n return to the Calculator section to see the colour.",
+                Snackbar.make(v, "Colour yellow was selected, " + "\n to continue press the confirm button",
                         Snackbar.LENGTH_LONG)
                         .show();
-                moveData();
-                Log.d(TAG, "onClick: " + "Yellow is clicked");
+                Log.d(TAG, "onClick: " + Yellow + "Yellow is clicked");
                 break;
 
             case R.id.ib_Orange:
                 Orange = true;
-                Snackbar.make(v, "Colour was set to Orange," + "\n return to the Calculator section to see the colour.",
+                Snackbar.make(v, "Colour orange was selected, " + "\n to continue press the confirm button",
                         Snackbar.LENGTH_LONG)
                         .show();
-                moveData();
-                Log.d(TAG, "onClick: " + "Orange is clicked");
+                Log.d(TAG, "onClick: " + Orange + "Orange is clicked");
                 break;
 
             case R.id.ib_Red:
                 Red = true;
-                Snackbar.make(v, "Colour was set to Red," + "\n return to the Calculator section to see the colour.",
+                Snackbar.make(v, "Colour red was selected, " + "\n to continue press the confirm button",
                         Snackbar.LENGTH_LONG)
                         .show();
+                Log.d(TAG, "onClick: " + Red + "Red is clicked");
+                break;
+
+            case R.id.ib_Purple:
+                Purple = true;
+                Snackbar.make(v, "Colour purple was selected, " + "\n to continue press the confirm button",
+                        Snackbar.LENGTH_LONG)
+                        .show();
+                Log.d(TAG, "onClick: " + Purple + "purple is clicked");
+                break;
+
+            case R.id.confirm_BTN:
                 moveData();
-                Log.d(TAG, "onClick: " + "Red is clicked");
+                break;
+
+            case R.id.reset_BTN:
+                Snackbar.make(v, "Colour was reset to original, " + "\n to continue press the confirm button",
+                        Snackbar.LENGTH_LONG)
+                        .show();
+                original = true;
+                Red = false;
+                Blue = false;
+                Green = false;
+                Orange = false;
+                Yellow = false;
+                Grey = false;
+                LTGreen = false;
+                Purple = false;
+                Log.d(TAG, "onClick: " + original + "reset is pressed");
                 break;
         }
     }
@@ -124,6 +131,8 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
         intent.putExtra("green", Green);
         intent.putExtra("grey", Grey);
         intent.putExtra("light green", LTGreen);
+        intent.putExtra("purple", Purple);
+        intent.putExtra("white", original);
         startActivity(intent);
     }
 }

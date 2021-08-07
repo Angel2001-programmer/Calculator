@@ -21,6 +21,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvResults"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:inputType="number|numberDecimal"
+        android:minHeight="48dp"
+        android:textAlignment="textEnd"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+        app:layout_constraintStart_toStartOf="@+id/tableLayout"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:text="0" />
+
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
@@ -181,16 +197,5 @@
         </TableRow>
 
     </TableLayout>
-
-    <TextView
-        android:id="@+id/tvResults"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:inputType="number|numberDecimal"
-        android:textAlignment="textEnd"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintEnd_toEndOf="@+id/tableLayout"
-        app:layout_constraintStart_toStartOf="@+id/tableLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

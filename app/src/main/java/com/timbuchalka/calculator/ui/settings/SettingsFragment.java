@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -41,21 +43,32 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-        binding.switchNightmode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            binding.switchNightmode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//                @Override
+//                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//                    if (isChecked) {
+//                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//                        Log.d(TAG, "onCheckedChanged: " + isChecked + "Button enabled");
+//                    } else {
+//                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//                        Log.d(TAG, "onCheckedChanged: " + isChecked + "Button disabled");
+//                    }
+//
+//                }
+//            });
+
+        binding.switchNightmode.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    Log.d(TAG, "onCheckedChanged: " + isChecked + "Button enabled");
-                } else {
-                    Log.d(TAG, "onCheckedChanged: " + isChecked + "Button disabled");
-                }
+            public void onClick(View v) {
+                binding.switchNightmode.setChecked(!binding.switchNightmode.isChecked());
             }
         });
 
         binding.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), BackgroundColours.class);
+                Intent intent = new Intent(getActivity(), BackgroundColours.class);
                 startActivity(intent);
             }
         });

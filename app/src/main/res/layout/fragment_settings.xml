@@ -37,7 +37,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/night_mode"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:checked="false" />
 
             <TextView
                 android:id="@+id/textView"
