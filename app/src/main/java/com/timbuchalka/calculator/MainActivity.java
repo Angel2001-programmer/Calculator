@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -126,4 +127,9 @@ public class MainActivity extends AppCompatActivity {
 
 //        binding.background.setBackground(gradientDrawable);
     }
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//        onCreate(savedInstanceState);
+//    }
 }

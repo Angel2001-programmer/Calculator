@@ -1,6 +1,10 @@
 package com.timbuchalka.calculator.ui.settings;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,15 +21,18 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.timbuchalka.calculator.BackgroundColours;
 import com.timbuchalka.calculator.databinding.FragmentSettingsBinding;
+
+import java.util.Objects;
 
 public class SettingsFragment extends Fragment {
 
     private SettingsViewModel SettingsViewModel;
     private FragmentSettingsBinding binding;
     private static final String TAG = "SettingsFragment";
-
+    boolean isChecked = false;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,39 +50,40 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-//            binding.switchNightmode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//                @Override
-//                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//
-//                    if (isChecked) {
-//                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                        Log.d(TAG, "onCheckedChanged: " + isChecked + "Button enabled");
-//                    } else {
-//                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                        Log.d(TAG, "onCheckedChanged: " + isChecked + "Button disabled");
-//                    }
-//
-//                }
-//            });
+        SharedPreferences preferences =
+                requireActivity().getSharedPreferences("com.timbuchalka.calculator", MODE_PRIVATE);
+        boolean switchState = preferences.getBoolean("status", false);
+        binding.switchNightmode.setChecked(switchState);
 
-        binding.switchNightmode.setOnClickListener(new View.OnClickListener() {
+        binding.switchNightmode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                binding.switchNightmode.setChecked(!binding.switchNightmode.isChecked());
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+
+                SharedPreferences.Editor editor = requireActivity().getSharedPreferences
+                        ("com.timbuchalka.calculator", MODE_PRIVATE).edit();
+                editor.putBoolean("status", binding.switchNightmode.isChecked());
+                editor.apply();
             }
         });
 
         binding.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), BackgroundColours.class);
-                startActivity(intent);
+                Intent i = new Intent(getActivity(), BackgroundColours.class);
+                startActivity(i);
             }
         });
 
         return root;
-
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
