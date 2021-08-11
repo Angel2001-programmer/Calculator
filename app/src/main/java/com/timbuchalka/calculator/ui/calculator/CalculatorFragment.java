@@ -3,11 +3,16 @@ package com.timbuchalka.calculator.ui.calculator;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +29,11 @@ import com.timbuchalka.calculator.R;
 import com.timbuchalka.calculator.databinding.FragmentCalulatorBinding;
 import com.timbuchalka.calculator.Calculation;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
+
 public class CalculatorFragment extends Fragment implements View.OnClickListener {
 
     private CalculatorViewModel calculatorViewModel;
@@ -32,13 +42,15 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     private String append2;
     private double num1;
     private double num2;
+    private double sum;
     String calculation1, calculation2;
-    //    String result;
-    double sum;
+    Number number;
     DatabaseReference reference;
     Calculation mCalculation;
+    Editable s;
+    String i;
 
-    Boolean Addition = false, AdditionEqual = false, Subtraction = false, Multiplication = false, Division = false, Closed = false;
+    Boolean Addition = false, Subtraction = false, Multiplication = false, Division = false;
     private static final String TAG = "MainActivity";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -81,6 +93,45 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         mCalculation = new Calculation();
         onResume();
 
+        binding.tvResults.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                binding.tvResults.removeTextChangedListener(this);
+
+                try {
+                    String givenString = s.toString();
+                    Long longval;
+                    if (givenString.contains(",")) {
+                        givenString = givenString.replaceAll(",", "");
+                    }
+                    longval = Long.parseLong(givenString);
+                    DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+                    String formattedString = decimalFormat.format(longval);
+                    binding.tvResults.setText(formattedString);
+
+                } catch (NumberFormatException numberFormatException) {
+                    numberFormatException.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                binding.tvResults.addTextChangedListener(this);
+                // TODO Auto-generated method stub
+            }
+        });
+
         return root;
     }
 
@@ -93,12 +144,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         String append1 = binding.tvResults.getText().toString();
-        if(append1 == null){
-            Log.d(TAG, "onClick: button is not vaild");
-            Snackbar.make(v, "Please reset button and redo calculation.",
-                    Snackbar.LENGTH_SHORT).show();
-            return;
-        }
 
         switch (v.getId()) {
             case R.id.btn0:
@@ -132,7 +177,12 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 binding.tvResults.append("9");
                 break;
             case R.id.btnDot:
-                binding.tvResults.append(".");
+                if (append1.matches("")) {
+                    binding.tvResults.append("0.");
+                } else {
+                    binding.tvResults.append(".");
+                }
+
                 break;
             case R.id.btnAC:
                 binding.tvResults.setText("");
@@ -144,16 +194,24 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 break;
 
             case R.id.btnAdd:
-
-                num1 = Double.parseDouble(append1);
+                try {
+                    num1 = Float.parseFloat(getDoubleFromString1(append1) + "");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 calculation1 = append1;
                 binding.tvResults.setText("");
                 Addition = true;
                 Log.d(TAG, "Value1: " + append1);
                 break;
 
+
             case R.id.btnMinus:
-                num1 = Double.parseDouble(append1);
+                try {
+                    num1 = Float.parseFloat(getDoubleFromString1(append1) + "");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 calculation1 = append1;
                 binding.tvResults.setText("");
                 Subtraction = true;
@@ -161,7 +219,11 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 break;
 
             case R.id.btnMultiply:
-                num1 = Double.parseDouble(append1);
+                try {
+                    num1 = Float.parseFloat(getDoubleFromString1(append1) + "");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 calculation1 = append1;
                 binding.tvResults.setText("");
                 Multiplication = true;
@@ -169,7 +231,12 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 break;
 
             case R.id.btnDivide:
-                num1 = Float.parseFloat(append1);
+                try {
+                    num1 = Float.parseFloat(getDoubleFromString1(append1) + "");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 calculation1 = append1;
                 binding.tvResults.setText("");
                 Division = true;
@@ -177,9 +244,17 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 break;
 
             case R.id.btnEquals:
+                if (append1.isEmpty()) {
+                    binding.tvResults.setText("0");
+                }
 
                 append2 = binding.tvResults.getText().toString();
-                num2 = Double.parseDouble(append2);
+                try {
+                    num2 = Float.parseFloat(getDoubleFromString1(append2) + "");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+//                num2 = Double.parseDouble(append2);
                 calculation2 = append2;
                 Log.d(TAG, "Value2: " + append2);
                 calLogic();
@@ -199,6 +274,16 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         if (Addition) {
             sum = num1 += num2;
             String result = String.valueOf(sum);
+            DecimalFormat format = new DecimalFormat("###,###,###");
+            String yourFormattedString = format.format(sum);
+
+            try {
+                double realNumber = getDoubleFromString2(result);
+                Log.d(TAG, "Value2: " + realNumber);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
             binding.tvResults.setText(result);
             Log.d(TAG, "Value2: " + result);
             Addition = false;
@@ -206,9 +291,9 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
             if (sum == (int) sum) {
                 int integer = (int) Math.round(Float.parseFloat(result));
-                Log.d(TAG, "is even: " + integer);
+                Log.d(TAG, "is even: " + yourFormattedString);
                 binding.tvResults.setText(String.valueOf(integer));
-                String calculation = calculation1 + " + " + calculation2 + " = " + integer;
+                String calculation = calculation1 + " + " + calculation2 + " = " + yourFormattedString;
                 Log.d(TAG, "Calculation: " + calculation);
 
                 mCalculation.setValue0(calculation);
@@ -216,39 +301,48 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
 
             } else {
-                Log.d(TAG, "is old: " + result);
-                binding.tvResults.setText(result);
-                String calculation = calculation1 + " + " + calculation2 + " = " + result;
+                Log.d(TAG, "is odd: " + yourFormattedString);
+                binding.tvResults.setText(yourFormattedString);
+                String calculation = calculation1 + " + " + calculation2 + " = " + yourFormattedString;
                 Log.d(TAG, "Calculation: " + calculation);
 
                 mCalculation.setValue0(calculation);
                 reference.push().setValue(mCalculation);
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
+
             }
 
         } else if (Subtraction) {
             sum = num1 -= num2;
             String result = String.valueOf(sum);
-            binding.tvResults.setText(result);
+            DecimalFormat format = new DecimalFormat("###,###,###");
+            String yourFormattedString = format.format(sum);
+            binding.tvResults.setText(yourFormattedString);
             Log.d(TAG, "Value2: " + result);
             Subtraction = false;
             Log.d(TAG, "calLogic: Subtraction " + false);
 
+            try {
+                double realNumber = getDoubleFromString2(result);
+                Log.d(TAG, "Value2: " + realNumber);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
             if (sum == (int) sum) {
                 int integer = (int) Math.round(Float.parseFloat(result));
-                Log.d(TAG, "is even: " + integer);
+                Log.d(TAG, "is even: " + yourFormattedString);
                 binding.tvResults.setText(String.valueOf(integer));
-                String calculation = calculation1 + " - " + calculation2 + " = " + integer;
+                String calculation = calculation1 + " - " + calculation2 + " = " + yourFormattedString;
                 Log.d(TAG, "Calculation: " + calculation);
 
                 mCalculation.setValue0(calculation);
                 reference.push().setValue(mCalculation);
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
             } else {
-                Log.d(TAG, "is old: " + result);
-                binding.tvResults.setText(result);
-                String calculation = calculation1 + " - " + calculation2 + " = " + result;
+                Log.d(TAG, "is odd: " + yourFormattedString);
+                binding.tvResults.setText(yourFormattedString);
+                String calculation = calculation1 + " - " + calculation2 + " = " + yourFormattedString;
                 Log.d(TAG, "Calculation: " + calculation);
 
                 mCalculation.setValue0(calculation);
@@ -259,24 +353,33 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         } else if (Multiplication) {
             sum = num1 *= num2;
             String result = String.valueOf(sum);
+            DecimalFormat format = new DecimalFormat("###,###,###");
+            String yourFormattedString = format.format(sum);
             Log.d(TAG, "Value2: " + result);
             Multiplication = false;
             Log.d(TAG, "calLogic: Multiplication " + false);
 
+            try {
+                double realNumber = getDoubleFromString2(result);
+                Log.d(TAG, "Value2: " + realNumber);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
             if (sum == (int) sum) {
                 int integer = (int) Math.round(Float.parseFloat(result));
-                Log.d(TAG, "is even: " + integer);
+                Log.d(TAG, "is even: " + yourFormattedString);
                 binding.tvResults.setText(String.valueOf(integer));
-                String calculation = calculation1 + " X " + calculation2 + " = " + integer;
+                String calculation = calculation1 + " X " + calculation2 + " = " + yourFormattedString;
                 Log.d(TAG, "Calculation: " + calculation);
 
                 mCalculation.setValue0(calculation);
                 reference.push().setValue(mCalculation);
                 Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
             } else {
-                Log.d(TAG, "is old: " + result);
-                binding.tvResults.setText(result);
-                String calculation = calculation1 + " X " + calculation2 + " = " + result;
+                Log.d(TAG, "is old: " + yourFormattedString);
+                binding.tvResults.setText(yourFormattedString);
+                String calculation = calculation1 + " X " + calculation2 + " = " + yourFormattedString;
                 Log.d(TAG, "Calculation: " + calculation);
 
                 mCalculation.setValue0(calculation);
@@ -288,15 +391,24 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
             num2 = Float.parseFloat(append2);
             sum = num1 / num2;
             String result = String.valueOf(sum);
+            DecimalFormat format = new DecimalFormat("###,###,###");
+            String yourFormattedString = format.format(sum);
             Log.d(TAG, "Value2: " + result);
             Division = false;
             Log.d(TAG, "calLogic: Division " + false);
 
+            try {
+                double realNumber = getDoubleFromString2(result);
+                Log.d(TAG, "Value2: " + realNumber);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
             if (sum == (int) sum) {
                 int integer = (int) Math.round(Float.parseFloat(result));
-                Log.d(TAG, "is even: " + integer);
+                Log.d(TAG, "is even: " + yourFormattedString);
                 binding.tvResults.setText(String.valueOf(integer));
-                String calculation = calculation1 + " ÷ " + calculation2 + " = " + integer;
+                String calculation = calculation1 + " ÷ " + calculation2 + " = " + yourFormattedString;
                 Log.d(TAG, "Calculation: " + calculation);
 
                 mCalculation.setValue0(calculation);
@@ -315,7 +427,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
             }
         }
     }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -325,7 +436,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         reference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Log.d(TAG, "onComplete: " + "Database: data is removed.");
                 } else {
                     Log.d(TAG, "onComplete: " + "Database: failed to delete data.");
@@ -333,5 +444,26 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 }
             }
         });
+    }
+
+    private double getDoubleFromString0(String append1) throws ParseException {
+        String newvalue0 = append1.replace(",", "");
+        NumberFormat formatException = NumberFormat.getInstance(Locale.getDefault());
+        number = formatException.parse(newvalue0);
+        return number.doubleValue();
+    }
+
+    private double getDoubleFromString1(String append2) throws ParseException {
+        String newvalue1 = append2.replace(",", "");
+        NumberFormat formatException = NumberFormat.getInstance(Locale.getDefault());
+        number = formatException.parse(newvalue1);
+        return number.doubleValue();
+    }
+
+    private double getDoubleFromString2(String result) throws ParseException {
+        String newvalue2 = result.replace(",", "");
+        NumberFormat formatException = NumberFormat.getInstance(Locale.getDefault());
+        number = formatException.parse(newvalue2);
+        return number.doubleValue();
     }
 }

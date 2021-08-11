@@ -32,7 +32,6 @@ public class SettingsFragment extends Fragment {
     private SettingsViewModel SettingsViewModel;
     private FragmentSettingsBinding binding;
     private static final String TAG = "SettingsFragment";
-    boolean isChecked = false;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

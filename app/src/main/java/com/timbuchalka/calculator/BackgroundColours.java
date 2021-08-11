@@ -1,6 +1,8 @@
 package com.timbuchalka.calculator;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +35,6 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
         binding.confirmBTN.setOnClickListener(this);
         binding.resetBTN.setOnClickListener(this);
 
-//        switchState = getIntent().getExtras().getBoolean("status");
     }
 
     @Override
@@ -104,23 +105,7 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
                 break;
 
             case R.id.confirm_BTN:
-
-//                if(switchState) {
-//                    Snackbar.make(v, "Colour cannot be changed, " + "\n When nightmode is active",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    Red = false;
-//                    Blue = false;
-//                    Green = false;
-//                    Orange = false;
-//                    Yellow = false;
-//                    Grey = false;
-//                    LTGreen = false;
-//                    Purple = false;
-//                    original = false;
-//                } else {
                 moveData();
-//                }
                 break;
 
             case R.id.reset_BTN:
