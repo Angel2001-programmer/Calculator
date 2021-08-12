@@ -42,13 +42,14 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     private String append2;
     private double num1;
     private double num2;
-    private double sum;
     String calculation1, calculation2;
     Number number;
     DatabaseReference reference;
     Calculation mCalculation;
-    Editable s;
-    String i;
+    String result;
+    String yourFormattedString;
+    int integer;
+    double sum;
 
     Boolean Addition = false, Subtraction = false, Multiplication = false, Division = false;
     private static final String TAG = "MainActivity";
@@ -194,51 +195,46 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 break;
 
             case R.id.btnAdd:
-                try {
-                    num1 = Float.parseFloat(getDoubleFromString1(append1) + "");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                calculation1 = append1;
-                binding.tvResults.setText("");
+                getNumberFromText(append1);
                 Addition = true;
                 Log.d(TAG, "Value1: " + append1);
+
+//                    append2 = binding.tvResults.getText().toString();
+
+//                    sum = num1 += num2;
+//                    result = String.valueOf(sum);
+//                    idkwhattonameyou(result);
+//                    Addition = false;
+//                    Log.d(TAG, "calLogic: Subtraction " + false);
+//
+//                    if (sum == (int) sum) {
+//                        checkInteger(result, sum);
+//                        String calculation = calculation1 + " + " + calculation2 + " = " + yourFormattedString;
+//                        database(calculation);
+//
+//                    } else {
+//                        setText(result);
+//                        String calculation = calculation1 + " + " + calculation2 + " = " + result;
+//                        database(calculation);
+//
+//                    }
                 break;
 
 
             case R.id.btnMinus:
-                try {
-                    num1 = Float.parseFloat(getDoubleFromString1(append1) + "");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                calculation1 = append1;
-                binding.tvResults.setText("");
+                getNumberFromText(append1);
                 Subtraction = true;
                 Log.d(TAG, "Value1: " + append1);
                 break;
 
             case R.id.btnMultiply:
-                try {
-                    num1 = Float.parseFloat(getDoubleFromString1(append1) + "");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                calculation1 = append1;
-                binding.tvResults.setText("");
+                getNumberFromText(append1);
                 Multiplication = true;
                 Log.d(TAG, "Value1: " + append1);
                 break;
 
             case R.id.btnDivide:
-                try {
-                    num1 = Float.parseFloat(getDoubleFromString1(append1) + "");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-
-                calculation1 = append1;
-                binding.tvResults.setText("");
+                getNumberFromText(append1);
                 Division = true;
                 Log.d(TAG, "Value1: " + append1);
                 break;
@@ -254,7 +250,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-//                num2 = Double.parseDouble(append2);
                 calculation2 = append2;
                 Log.d(TAG, "Value2: " + append2);
                 calLogic();
@@ -270,159 +265,75 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     }
 
     private void calLogic() {
-        double sum;
         if (Addition) {
             sum = num1 += num2;
-            String result = String.valueOf(sum);
-            DecimalFormat format = new DecimalFormat("###,###,###");
-            String yourFormattedString = format.format(sum);
-
-            try {
-                double realNumber = getDoubleFromString2(result);
-                Log.d(TAG, "Value2: " + realNumber);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-            binding.tvResults.setText(result);
-            Log.d(TAG, "Value2: " + result);
+            result = String.valueOf(sum);
+            idkwhattonameyou(result);
             Addition = false;
             Log.d(TAG, "calLogic: Subtraction " + false);
 
             if (sum == (int) sum) {
-                int integer = (int) Math.round(Float.parseFloat(result));
-                Log.d(TAG, "is even: " + yourFormattedString);
-                binding.tvResults.setText(String.valueOf(integer));
+                checkInteger(result, sum);
                 String calculation = calculation1 + " + " + calculation2 + " = " + yourFormattedString;
-                Log.d(TAG, "Calculation: " + calculation);
-
-                mCalculation.setValue0(calculation);
-                reference.push().setValue(mCalculation);
-                Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
+                database(calculation);
 
             } else {
-                Log.d(TAG, "is odd: " + yourFormattedString);
-                binding.tvResults.setText(yourFormattedString);
-                String calculation = calculation1 + " + " + calculation2 + " = " + yourFormattedString;
-                Log.d(TAG, "Calculation: " + calculation);
-
-                mCalculation.setValue0(calculation);
-                reference.push().setValue(mCalculation);
-                Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
+                setText(result);
+                String calculation = calculation1 + " + " + calculation2 + " = " + result;
+                database(calculation);
 
             }
 
         } else if (Subtraction) {
             sum = num1 -= num2;
-            String result = String.valueOf(sum);
-            DecimalFormat format = new DecimalFormat("###,###,###");
-            String yourFormattedString = format.format(sum);
-            binding.tvResults.setText(yourFormattedString);
-            Log.d(TAG, "Value2: " + result);
+            result = String.valueOf(sum);
+            idkwhattonameyou(result);
             Subtraction = false;
             Log.d(TAG, "calLogic: Subtraction " + false);
 
-            try {
-                double realNumber = getDoubleFromString2(result);
-                Log.d(TAG, "Value2: " + realNumber);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
             if (sum == (int) sum) {
-                int integer = (int) Math.round(Float.parseFloat(result));
-                Log.d(TAG, "is even: " + yourFormattedString);
-                binding.tvResults.setText(String.valueOf(integer));
+                checkInteger(result, sum);
                 String calculation = calculation1 + " - " + calculation2 + " = " + yourFormattedString;
-                Log.d(TAG, "Calculation: " + calculation);
-
-                mCalculation.setValue0(calculation);
-                reference.push().setValue(mCalculation);
-                Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
+                database(calculation);
             } else {
-                Log.d(TAG, "is odd: " + yourFormattedString);
-                binding.tvResults.setText(yourFormattedString);
-                String calculation = calculation1 + " - " + calculation2 + " = " + yourFormattedString;
-                Log.d(TAG, "Calculation: " + calculation);
-
-                mCalculation.setValue0(calculation);
-                reference.push().setValue(mCalculation);
-                Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
+                setText(result);
+                String calculation = calculation1 + " - " + calculation2 + " = " + result;
+                database(calculation);
             }
 
         } else if (Multiplication) {
             sum = num1 *= num2;
-            String result = String.valueOf(sum);
-            DecimalFormat format = new DecimalFormat("###,###,###");
-            String yourFormattedString = format.format(sum);
-            Log.d(TAG, "Value2: " + result);
+            result = String.valueOf(sum);
+            idkwhattonameyou(result);
             Multiplication = false;
             Log.d(TAG, "calLogic: Multiplication " + false);
 
-            try {
-                double realNumber = getDoubleFromString2(result);
-                Log.d(TAG, "Value2: " + realNumber);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
             if (sum == (int) sum) {
-                int integer = (int) Math.round(Float.parseFloat(result));
-                Log.d(TAG, "is even: " + yourFormattedString);
-                binding.tvResults.setText(String.valueOf(integer));
+                checkInteger(result, sum);
                 String calculation = calculation1 + " X " + calculation2 + " = " + yourFormattedString;
-                Log.d(TAG, "Calculation: " + calculation);
-
-                mCalculation.setValue0(calculation);
-                reference.push().setValue(mCalculation);
-                Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
+                database(calculation);
             } else {
-                Log.d(TAG, "is old: " + yourFormattedString);
-                binding.tvResults.setText(yourFormattedString);
-                String calculation = calculation1 + " X " + calculation2 + " = " + yourFormattedString;
-                Log.d(TAG, "Calculation: " + calculation);
-
-                mCalculation.setValue0(calculation);
-                reference.push().setValue(mCalculation);
-                Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
+                setText(result);
+                String calculation = calculation1 + " X " + calculation2 + " = " + result;
+                database(calculation);
             }
 
         } else if (Division) {
             num2 = Float.parseFloat(append2);
             sum = num1 / num2;
-            String result = String.valueOf(sum);
-            DecimalFormat format = new DecimalFormat("###,###,###");
-            String yourFormattedString = format.format(sum);
-            Log.d(TAG, "Value2: " + result);
+            result = String.valueOf(sum);
+            idkwhattonameyou(result);
             Division = false;
             Log.d(TAG, "calLogic: Division " + false);
 
-            try {
-                double realNumber = getDoubleFromString2(result);
-                Log.d(TAG, "Value2: " + realNumber);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
             if (sum == (int) sum) {
-                int integer = (int) Math.round(Float.parseFloat(result));
-                Log.d(TAG, "is even: " + yourFormattedString);
-                binding.tvResults.setText(String.valueOf(integer));
+                checkInteger(result, sum);
                 String calculation = calculation1 + " ÷ " + calculation2 + " = " + yourFormattedString;
-                Log.d(TAG, "Calculation: " + calculation);
-
-                mCalculation.setValue0(calculation);
-                reference.push().setValue(mCalculation);
-                Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
+                database(calculation);
             } else {
-                Log.d(TAG, "is odd: " + result);
-                binding.tvResults.setText(result);
+                setText(result);
                 String calculation = calculation1 + " ÷ " + calculation2 + " = " + result;
-                Log.d(TAG, "Calculation: " + calculation);
-
-                mCalculation.setValue0(calculation);
-                reference.push().setValue(mCalculation);
-                Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
+                database(calculation);
                 onPause();
             }
         }
@@ -439,18 +350,11 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 if (task.isSuccessful()) {
                     Log.d(TAG, "onComplete: " + "Database: data is removed.");
                 } else {
-                    Log.d(TAG, "onComplete: " + "Database: failed to delete data.");
+                    Log.d(TAG, "onFail: " + "Database: failed to delete data.");
 
                 }
             }
         });
-    }
-
-    private double getDoubleFromString0(String append1) throws ParseException {
-        String newvalue0 = append1.replace(",", "");
-        NumberFormat formatException = NumberFormat.getInstance(Locale.getDefault());
-        number = formatException.parse(newvalue0);
-        return number.doubleValue();
     }
 
     private double getDoubleFromString1(String append2) throws ParseException {
@@ -465,5 +369,47 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         NumberFormat formatException = NumberFormat.getInstance(Locale.getDefault());
         number = formatException.parse(newvalue2);
         return number.doubleValue();
+    }
+
+    public void getNumberFromText(String append1) {
+        try {
+            num1 = Float.parseFloat(getDoubleFromString1(append1) + "");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        calculation1 = append1;
+        binding.tvResults.setText("");
+    }
+
+    public void idkwhattonameyou(String result) {
+        Log.d(TAG, "Value2: " + result);
+
+        try {
+            double realNumber = getDoubleFromString2(result);
+            Log.d(TAG, "Value2: " + realNumber);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void database(String calculation) {
+        Log.d(TAG, "Calculation: " + calculation);
+        mCalculation.setValue0(calculation);
+        reference.push().setValue(mCalculation);
+        Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
+    }
+
+    public void setText(String result) {
+        Log.d(TAG, "is odd: " + result);
+        binding.tvResults.setText(result);
+    }
+
+    public void checkInteger(String result, double sum) {
+        DecimalFormat format = new DecimalFormat("###,###,###");
+        yourFormattedString = format.format(sum);
+
+        integer = (int) Math.round(Float.parseFloat(result));
+        Log.d(TAG, "is even: " + yourFormattedString);
+        binding.tvResults.setText(String.valueOf(integer));
     }
 }
