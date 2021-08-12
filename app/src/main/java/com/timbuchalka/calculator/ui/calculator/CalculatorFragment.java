@@ -1,11 +1,7 @@
 package com.timbuchalka.calculator.ui.calculator;
 
-import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,18 +34,12 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
     private CalculatorViewModel calculatorViewModel;
     private FragmentCalulatorBinding binding;
-
-    private String append2;
-    private double num1;
-    private double num2;
-    String calculation1, calculation2;
+    private String append2, calculation1, calculation2, yourFormattedString;
+    private double num1, num2;
     Number number;
+    int integer;
     DatabaseReference reference;
     Calculation mCalculation;
-    String result;
-    String yourFormattedString;
-    int integer;
-    double sum;
 
     Boolean Addition = false, Subtraction = false, Multiplication = false, Division = false;
     private static final String TAG = "MainActivity";
@@ -190,6 +180,10 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 append2 = null;
                 calculation1 = null;
                 calculation2 = null;
+                binding.btnAdd.setEnabled(true);
+                binding.btnMinus.setEnabled(true);
+                binding.btnDivide.setEnabled(true);
+                binding.btnMultiply.setEnabled(true);
                 Snackbar.make(v, "Calculator is reset.",
                         Snackbar.LENGTH_SHORT).show();
                 break;
@@ -199,25 +193,9 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 Addition = true;
                 Log.d(TAG, "Value1: " + append1);
 
-//                    append2 = binding.tvResults.getText().toString();
-
-//                    sum = num1 += num2;
-//                    result = String.valueOf(sum);
-//                    idkwhattonameyou(result);
-//                    Addition = false;
-//                    Log.d(TAG, "calLogic: Subtraction " + false);
-//
-//                    if (sum == (int) sum) {
-//                        checkInteger(result, sum);
-//                        String calculation = calculation1 + " + " + calculation2 + " = " + yourFormattedString;
-//                        database(calculation);
-//
-//                    } else {
-//                        setText(result);
-//                        String calculation = calculation1 + " + " + calculation2 + " = " + result;
-//                        database(calculation);
-//
-//                    }
+                if (Addition = true) {
+                    disableButtons();
+                }
                 break;
 
 
@@ -225,18 +203,30 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 getNumberFromText(append1);
                 Subtraction = true;
                 Log.d(TAG, "Value1: " + append1);
+
+                if (Subtraction = true) {
+                    disableButtons();
+                }
                 break;
 
             case R.id.btnMultiply:
                 getNumberFromText(append1);
                 Multiplication = true;
                 Log.d(TAG, "Value1: " + append1);
+
+                if (Multiplication = true) {
+                    disableButtons();
+                }
                 break;
 
             case R.id.btnDivide:
                 getNumberFromText(append1);
                 Division = true;
                 Log.d(TAG, "Value1: " + append1);
+
+                if (Division = true) {
+                    disableButtons();
+                }
                 break;
 
             case R.id.btnEquals:
@@ -253,6 +243,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 calculation2 = append2;
                 Log.d(TAG, "Value2: " + append2);
                 calLogic();
+                enableButtons();
                 break;
 
             default:
@@ -261,10 +252,11 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                         Snackbar.LENGTH_SHORT).show();
                 break;
         }
-
     }
 
     private void calLogic() {
+        double sum;
+        String result;
         if (Addition) {
             sum = num1 += num2;
             result = String.valueOf(sum);
@@ -338,6 +330,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
             }
         }
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -411,5 +404,22 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         integer = (int) Math.round(Float.parseFloat(result));
         Log.d(TAG, "is even: " + yourFormattedString);
         binding.tvResults.setText(String.valueOf(integer));
+    }
+
+    public void disableButtons() {
+        binding.btnAdd.setEnabled(false);
+        binding.btnMinus.setEnabled(false);
+        binding.btnDivide.setEnabled(false);
+        binding.btnMultiply.setEnabled(false);
+
+        Toast.makeText(getActivity(), "Operations have been disabled," +
+                " this is to prevent more than two number being added together.", Toast.LENGTH_LONG).show();
+    }
+
+    public void enableButtons() {
+        binding.btnAdd.setEnabled(true);
+        binding.btnMinus.setEnabled(true);
+        binding.btnDivide.setEnabled(true);
+        binding.btnMultiply.setEnabled(true);
     }
 }

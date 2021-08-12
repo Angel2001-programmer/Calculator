@@ -15,7 +15,7 @@ import com.timbuchalka.calculator.databinding.ActivityBackgroundColoursBinding;
 public class BackgroundColours extends AppCompatActivity implements View.OnClickListener {
     ActivityBackgroundColoursBinding binding;
     private static final String TAG = "BCFragment";
-    Boolean Blue = false, Red = false, Yellow = false, Green = false, LTGreen = false,
+    boolean Blue = false, Red = false, Yellow = false, Green = false, LTGreen = false,
             Orange = false, Grey = false, Purple = false, original = false;
 
     @Override
