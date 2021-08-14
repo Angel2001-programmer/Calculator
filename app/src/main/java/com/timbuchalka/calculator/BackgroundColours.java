@@ -10,6 +10,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.timbuchalka.calculator.databinding.ActivityBackgroundColoursBinding;
+import com.timbuchalka.calculator.ui.settings.SettingsFragment;
 
 
 public class BackgroundColours extends AppCompatActivity implements View.OnClickListener {
@@ -26,6 +27,7 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
         setContentView(view);
 
         binding.ibBlue.setOnClickListener(this);
+        binding.ibPurple.setOnClickListener(this);
         binding.ibGreen.setOnClickListener(this);
         binding.ibGrey.setOnClickListener(this);
         binding.ibLTGreen.setOnClickListener(this);
@@ -106,6 +108,7 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
 
             case R.id.confirm_BTN:
                 moveData();
+
                 break;
 
             case R.id.reset_BTN:

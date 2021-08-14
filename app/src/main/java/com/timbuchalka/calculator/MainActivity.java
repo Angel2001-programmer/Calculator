@@ -1,13 +1,21 @@
 package com.timbuchalka.calculator;
 
+import static java.security.AccessController.getContext;
+
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -26,6 +34,92 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
+
+        if (Red) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(Color.parseColor("#5B0E0E"));
+            }
+
+            binding.background.setBackgroundResource(R.drawable.red);
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#811414")));
+        } else if (Blue) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(Color.parseColor("#135CA5"));
+            }
+            binding.background.setBackgroundResource(R.drawable.blue);
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1976d2")));
+
+        } else if (Green) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(Color.parseColor("#164B19"));
+            }
+            binding.background.setBackgroundResource(R.drawable.green);
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1b5e20")));
+
+        } else if (Orange) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(Color.parseColor("#B95B08"));
+            }
+
+            binding.background.setBackgroundResource(R.drawable.redorange);
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#f57f17")));
+
+        } else if (Yellow) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(Color.parseColor("#c49000"));
+            }
+            binding.background.setBackgroundResource(R.drawable.yellow);
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#fbc02d")));
+
+        } else if (Grey) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(Color.parseColor("#36464E"));
+            }
+            binding.background.setBackgroundResource(R.drawable.grey);
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#455a64")));
+
+        } else if (LTGreen) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(Color.parseColor("#275117"));
+            }
+            binding.background.setBackgroundResource(R.drawable.lightgreen);
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#33691e")));
+
+        } else if (Purple) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(Color.parseColor("#4A136C"));
+            }
+            binding.background.setBackgroundResource(R.drawable.purple);
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#6a1b9a")));
+
+        } else if (original) {
+            binding.background.setBackgroundResource(0);
+        }
+
         setContentView(view);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -48,88 +142,6 @@ public class MainActivity extends AppCompatActivity {
         Purple = getIntent().getBooleanExtra("purple", false);
         original = getIntent().getBooleanExtra("white", false);
 
-        if (Red) {
-            binding.background.setBackgroundResource(R.drawable.red);
-        } else if (Blue) {
-            binding.background.setBackgroundResource(R.drawable.blue);
-//            Red = false;
-//            Blue = false;
-//            Green = false;
-//            Orange = false;
-//            Yellow = false;
-//            Grey = false;
-//            LTGreen = false;
-//            Purple = false;
-        } else if (Green) {
-            binding.background.setBackgroundResource(R.drawable.green);
-//            Red = false;
-//            Blue = false;
-//            Green = false;
-//            Orange = false;
-//            Yellow = false;
-//            Grey = false;
-//            LTGreen = false;
-//            Purple = false;
-        } else if (Orange) {
-            binding.background.setBackgroundResource(R.drawable.redorange);
-//            Red = false;
-//            Blue = false;
-//            Green = false;
-//            Orange = false;
-//            Yellow = false;
-//            Grey = false;
-//            LTGreen = false;
-//            Purple = false;
-        } else if (Yellow) {
-            binding.background.setBackgroundResource(R.drawable.yellow);
-//            Red = false;
-//            Blue = false;
-//            Green = false;
-//            Orange = false;
-//            Yellow = false;
-//            Grey = false;
-//            LTGreen = false;
-//            Purple = false;
-        } else if (Grey) {
-            binding.background.setBackgroundResource(R.drawable.grey);
-//            Red = false;
-//            Blue = false;
-//            Green = false;
-//            Orange = false;
-//            Yellow = false;
-//            Grey = false;
-//            LTGreen = false;
-//            Purple = false;
-        } else if (LTGreen) {
-            binding.background.setBackgroundResource(R.drawable.lightgreen);
-//            Red = false;
-//            Blue = false;
-//            Green = false;
-//            Orange = false;
-//            Yellow = false;
-//            Grey = false;
-//            LTGreen = false;
-//            Purple = false;
-        } else if (Purple) {
-            binding.background.setBackgroundResource(R.drawable.purple);
-//            Red = false;
-//            Blue = false;
-//            Green = false;
-//            Orange = false;
-//            Yellow = false;
-//            Grey = false;
-//            LTGreen = false;
-//            Purple = false;
-        } else if (original) {
-            binding.background.setBackgroundResource(R.color.white);
-        }
 
-
-//        binding.background.setBackground(gradientDrawable);
     }
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        onCreate(savedInstanceState);
-//    }
 }

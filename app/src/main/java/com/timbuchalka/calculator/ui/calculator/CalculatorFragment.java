@@ -311,7 +311,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
             }
 
         } else if (Division) {
-            num2 = Float.parseFloat(append2);
             sum = num1 / num2;
             result = String.valueOf(sum);
             idkwhattonameyou(result);
