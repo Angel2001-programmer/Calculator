@@ -1,5 +1,7 @@
 package com.timbuchalka.calculator.ui.calculator;
 
+import static java.security.AccessController.getContext;
+
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -46,6 +48,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         calculatorViewModel =
                 new ViewModelProvider(this).get(CalculatorViewModel.class);
 
@@ -138,7 +141,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
         switch (v.getId()) {
             case R.id.btn0:
-                binding.tvResults.append("0");
+//                binding.tvResults.append("0");
+                getContext().getTheme().applyStyle(R.style.Theme_RedStyle, true);
                 break;
             case R.id.btn1:
                 binding.tvResults.append("1");
