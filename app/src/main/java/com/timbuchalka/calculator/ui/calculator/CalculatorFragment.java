@@ -24,6 +24,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.timbuchalka.calculator.R;
+import com.timbuchalka.calculator.Utils;
 import com.timbuchalka.calculator.databinding.FragmentCalulatorBinding;
 import com.timbuchalka.calculator.Calculation;
 
@@ -45,9 +46,9 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
     Boolean Addition = false, Subtraction = false, Multiplication = false, Division = false;
     private static final String TAG = "MainActivity";
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        Utils.onActivityCreateSetTheme(getActivity());
 
         calculatorViewModel =
                 new ViewModelProvider(this).get(CalculatorViewModel.class);
@@ -141,8 +142,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
         switch (v.getId()) {
             case R.id.btn0:
-//                binding.tvResults.append("0");
-                getContext().getTheme().applyStyle(R.style.Theme_RedStyle, true);
+                binding.tvResults.append("0");
+                binding.loBackground.setBackgroundResource(R.drawable.red);
                 break;
             case R.id.btn1:
                 binding.tvResults.append("1");

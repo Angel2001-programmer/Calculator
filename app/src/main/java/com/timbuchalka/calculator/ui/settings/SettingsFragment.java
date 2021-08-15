@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.timbuchalka.calculator.BackgroundColours;
+import com.timbuchalka.calculator.Utils;
 import com.timbuchalka.calculator.databinding.FragmentSettingsBinding;
 
 import java.util.ArrayList;

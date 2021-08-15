@@ -3,6 +3,8 @@ package com.timbuchalka.calculator;
 import static java.security.AccessController.getContext;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -37,9 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
-        Utils.onActivityCreateSetTheme(this);
         setContentView(view);
-
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -62,91 +62,31 @@ public class MainActivity extends AppCompatActivity {
         original = getIntent().getBooleanExtra("white", false);
 
         if (Red) {
-//            if (Build.VERSION.SDK_INT >= 21) {
-//                Window window = getWindow();
-//                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//                window.setStatusBarColor(Color.parseColor("#5B0E0E"));
             Utils.changeToTheme(this, Utils.THEME_RedStyles);
 
-//            }
-//
-//            binding.background.setBackgroundResource(R.drawable.red);
-//            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#811414")));
         } else if (Blue) {
-//            if (Build.VERSION.SDK_INT >= 21) {
-//                Window window = getWindow();
-//                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//                window.setStatusBarColor(Color.parseColor("#135CA5"));
-//            }
-//            binding.background.setBackgroundResource(R.drawable.blue);
-//            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1976d2")));
             Utils.changeToTheme(this, Utils.THEME_BlueStyles);
 
         } else if (Green) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                Window window = getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(Color.parseColor("#164B19"));
-            }
-            binding.background.setBackgroundResource(R.drawable.green);
-            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1b5e20")));
+            Utils.changeToTheme(this, Utils.THEME_GreenStyles);
 
         } else if (Orange) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                Window window = getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(Color.parseColor("#B95B08"));
-            }
-
-            binding.background.setBackgroundResource(R.drawable.redorange);
-            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#f57f17")));
+            Utils.changeToTheme(this, Utils.THEME_OrangeStyles);
 
         } else if (Yellow) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                Window window = getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(Color.parseColor("#c49000"));
-            }
-            binding.background.setBackgroundResource(R.drawable.yellow);
-            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#fbc02d")));
+            Utils.changeToTheme(this, Utils.THEME_YellowStyles);
 
         } else if (Grey) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                Window window = getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(Color.parseColor("#36464E"));
-            }
-            binding.background.setBackgroundResource(R.drawable.grey);
-            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#455a64")));
+            Utils.changeToTheme(this, Utils.THEME_GreyStyles);
 
         } else if (LTGreen) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                Window window = getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(Color.parseColor("#275117"));
-            }
-            binding.background.setBackgroundResource(R.drawable.lightgreen);
-            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#33691e")));
+            Utils.changeToTheme(this, Utils.THEME_LightGreenStyles);
 
         } else if (Purple) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                Window window = getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(Color.parseColor("#4A136C"));
-            }
-            binding.background.setBackgroundResource(R.drawable.purple);
-            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#6a1b9a")));
+            Utils.changeToTheme(this, Utils.THEME_PurpleStyles);
 
         } else if (original) {
-            binding.background.setBackgroundResource(0);
+            Utils.changeToTheme(this, Utils.THEME_DEFAULT);
         }
     }
 }
