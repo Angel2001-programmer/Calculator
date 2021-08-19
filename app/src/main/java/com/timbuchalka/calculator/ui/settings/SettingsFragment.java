@@ -2,16 +2,15 @@ package com.timbuchalka.calculator.ui.settings;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,16 +21,14 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.timbuchalka.calculator.BackgroundColours;
+import com.timbuchalka.calculator.MainActivity;
+import com.timbuchalka.calculator.R;
 import com.timbuchalka.calculator.Utils;
 import com.timbuchalka.calculator.databinding.FragmentSettingsBinding;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class SettingsFragment extends Fragment {
@@ -39,6 +36,7 @@ public class SettingsFragment extends Fragment {
     private SettingsViewModel SettingsViewModel;
     private FragmentSettingsBinding binding;
     private static final String TAG = "SettingsFragment";
+    boolean NightMode = false;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -57,29 +55,30 @@ public class SettingsFragment extends Fragment {
         });
 
         SharedPreferences preferences =
-                requireActivity().getSharedPreferences("com.timbuchalka.calculator", MODE_PRIVATE);
+                getContext().getSharedPreferences("com.timbuchalka.calculator", MODE_PRIVATE);
         boolean switchState = preferences.getBoolean("status", false);
         binding.switchNightmode.setChecked(switchState);
 
         binding.switchNightmode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                }
-
                 SharedPreferences.Editor editor = requireActivity().getSharedPreferences
                         ("com.timbuchalka.calculator", MODE_PRIVATE).edit();
                 editor.putBoolean("status", binding.switchNightmode.isChecked());
+                if (isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    NightMode = true;
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    NightMode = false;
+                }
                 editor.apply();
             }
         });
-
         binding.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 SharedPreferences preferences =
                         requireActivity().getSharedPreferences("com.timbuchalka.calculator", MODE_PRIVATE);
                 boolean switchState = preferences.getBoolean("status", false);

@@ -40,16 +40,16 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     private String append2, calculation1, calculation2, yourFormattedString;
     private double num1, num2;
     Number number;
-    int integer;
+    int integer, buttonTap;
     DatabaseReference reference;
     Calculation mCalculation;
 
     Boolean Addition = false, Subtraction = false, Multiplication = false, Division = false;
     private static final String TAG = "MainActivity";
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         Utils.onActivityCreateSetTheme(getActivity());
-
         calculatorViewModel =
                 new ViewModelProvider(this).get(CalculatorViewModel.class);
 
@@ -143,7 +143,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         switch (v.getId()) {
             case R.id.btn0:
                 binding.tvResults.append("0");
-                binding.loBackground.setBackgroundResource(R.drawable.red);
                 break;
             case R.id.btn1:
                 binding.tvResults.append("1");
@@ -194,43 +193,84 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 break;
 
             case R.id.btnAdd:
-                getNumberFromText(append1);
-                Addition = true;
-                Log.d(TAG, "Value1: " + append1);
-
-                if (Addition = true) {
-                    disableButtons();
+                if (buttonTap == 0) {
+                    buttonTap = 2;
+                    getNumberFromText(append1);
+                    Addition = true;
+                    Log.d(TAG, "Value1: " + append1);
+                } else if (buttonTap == 2) {
+                    buttonTap = 0;
+                    append2 = binding.tvResults.getText().toString();
+                    try {
+                        num2 = Float.parseFloat(getDoubleFromString1(append2) + "");
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    calculation2 = append2;
+                    Log.d(TAG, "Value2: " + append2);
+                    calLogic();
                 }
                 break;
 
-
             case R.id.btnMinus:
-                getNumberFromText(append1);
-                Subtraction = true;
-                Log.d(TAG, "Value1: " + append1);
 
-                if (Subtraction = true) {
-                    disableButtons();
+                if (buttonTap == 0) {
+                    buttonTap = 2;
+                    getNumberFromText(append1);
+                    Subtraction = true;
+                    Log.d(TAG, "Value1: " + append1);
+                } else if (buttonTap == 2) {
+                    buttonTap = 0;
+                    append2 = binding.tvResults.getText().toString();
+                    try {
+                        num2 = Float.parseFloat(getDoubleFromString1(append2) + "");
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    calculation2 = append2;
+                    Log.d(TAG, "Value2: " + append2);
+                    calLogic();
                 }
                 break;
 
             case R.id.btnMultiply:
-                getNumberFromText(append1);
-                Multiplication = true;
-                Log.d(TAG, "Value1: " + append1);
-
-                if (Multiplication = true) {
-                    disableButtons();
+                if (buttonTap == 0) {
+                    buttonTap = 2;
+                    getNumberFromText(append1);
+                    Multiplication = true;
+                    Log.d(TAG, "Value1: " + append1);
+                } else if (buttonTap == 2) {
+                    buttonTap = 0;
+                    append2 = binding.tvResults.getText().toString();
+                    try {
+                        num2 = Float.parseFloat(getDoubleFromString1(append2) + "");
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    calculation2 = append2;
+                    Log.d(TAG, "Value2: " + append2);
+                    calLogic();
                 }
+
                 break;
 
             case R.id.btnDivide:
-                getNumberFromText(append1);
-                Division = true;
-                Log.d(TAG, "Value1: " + append1);
-
-                if (Division = true) {
-                    disableButtons();
+                if (buttonTap == 0) {
+                    buttonTap = 2;
+                    getNumberFromText(append1);
+                    Division = true;
+                    Log.d(TAG, "Value1: " + append1);
+                } else if (buttonTap == 2) {
+                    buttonTap = 0;
+                    append2 = binding.tvResults.getText().toString();
+                    try {
+                        num2 = Float.parseFloat(getDoubleFromString1(append2) + "");
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    calculation2 = append2;
+                    Log.d(TAG, "Value2: " + append2);
+                    calLogic();
                 }
                 break;
 

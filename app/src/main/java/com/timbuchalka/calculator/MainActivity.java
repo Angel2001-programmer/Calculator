@@ -1,38 +1,23 @@
 package com.timbuchalka.calculator;
 
-import static java.security.AccessController.getContext;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.ContextThemeWrapper;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.timbuchalka.calculator.databinding.ActivityMainBinding;
-import com.timbuchalka.calculator.ui.calculator.CalculatorFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    boolean Red, Blue, Green, Orange, Yellow, Grey, LTGreen, Purple, original;
+    boolean Red, Blue, Green, Orange, Yellow, Grey, LTGreen, Purple, original, switchState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,28 +47,28 @@ public class MainActivity extends AppCompatActivity {
         original = getIntent().getBooleanExtra("white", false);
 
         if (Red) {
-            Utils.changeToTheme(this, Utils.THEME_RedStyles);
+            Utils.changeToTheme(this, Utils.THEME_RED_STYLES);
 
         } else if (Blue) {
-            Utils.changeToTheme(this, Utils.THEME_BlueStyles);
+            Utils.changeToTheme(this, Utils.THEME_BLUE_STYLES);
 
         } else if (Green) {
-            Utils.changeToTheme(this, Utils.THEME_GreenStyles);
+            Utils.changeToTheme(this, Utils.THEME_GREEN_STYLES);
 
         } else if (Orange) {
-            Utils.changeToTheme(this, Utils.THEME_OrangeStyles);
+            Utils.changeToTheme(this, Utils.THEME_ORANGE_STYLES);
 
         } else if (Yellow) {
-            Utils.changeToTheme(this, Utils.THEME_YellowStyles);
+            Utils.changeToTheme(this, Utils.THEME_YELLOW_STYLES);
 
         } else if (Grey) {
-            Utils.changeToTheme(this, Utils.THEME_GreyStyles);
+            Utils.changeToTheme(this, Utils.THEME_GREY_STYLES);
 
         } else if (LTGreen) {
-            Utils.changeToTheme(this, Utils.THEME_LightGreenStyles);
+            Utils.changeToTheme(this, Utils.THEME_LIGHT_GREEN_STYLES);
 
         } else if (Purple) {
-            Utils.changeToTheme(this, Utils.THEME_PurpleStyles);
+            Utils.changeToTheme(this, Utils.THEME_PURPLE_STYLES);
 
         } else if (original) {
             Utils.changeToTheme(this, Utils.THEME_DEFAULT);

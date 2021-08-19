@@ -3,21 +3,19 @@ package com.timbuchalka.calculator;
 import android.app.Activity;
 import android.content.Intent;
 
-import androidx.fragment.app.Fragment;
-
-import com.timbuchalka.calculator.ui.calculator.CalculatorFragment;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class Utils {
     private static int sTheme;
     public final static int THEME_DEFAULT = 0;
-    public final static int THEME_RedStyles = 1;
-    public final static int THEME_BlueStyles = 2;
-    public final static int THEME_YellowStyles = 3;
-    public final static int THEME_GreyStyles = 4;
-    public final static int THEME_OrangeStyles = 5;
-    public final static int THEME_GreenStyles = 6;
-    public final static int THEME_LightGreenStyles = 7;
-    public final static int THEME_PurpleStyles = 8;
+    public final static int THEME_RED_STYLES = 1;
+    public final static int THEME_BLUE_STYLES = 2;
+    public final static int THEME_YELLOW_STYLES = 3;
+    public final static int THEME_GREY_STYLES = 4;
+    public final static int THEME_ORANGE_STYLES = 5;
+    public final static int THEME_GREEN_STYLES = 6;
+    public final static int THEME_LIGHT_GREEN_STYLES = 7;
+    public final static int THEME_PURPLE_STYLES = 8;
 
     public static void changeToTheme(Activity activity, int theme) {
         sTheme = theme;
@@ -31,29 +29,28 @@ public class Utils {
             case THEME_DEFAULT:
                 activity.setTheme(R.style.Theme_Calculator);
                 break;
-            case THEME_RedStyles:
+            case THEME_RED_STYLES:
                 activity.setTheme(R.style.Theme_RedStyle);
-
                 break;
-            case THEME_BlueStyles:
+            case THEME_BLUE_STYLES:
                 activity.setTheme(R.style.Theme_BlueStyle);
                 break;
-            case THEME_YellowStyles:
+            case THEME_YELLOW_STYLES:
                 activity.setTheme(R.style.Theme_YellowStyle);
                 break;
-            case THEME_GreyStyles:
+            case THEME_GREY_STYLES:
                 activity.setTheme(R.style.Theme_GreyStyle);
                 break;
-            case THEME_OrangeStyles:
+            case THEME_ORANGE_STYLES:
                 activity.setTheme(R.style.Theme_OrangeStyle);
                 break;
-            case THEME_GreenStyles:
+            case THEME_GREEN_STYLES:
                 activity.setTheme(R.style.Theme_GreenStyle);
                 break;
-            case THEME_LightGreenStyles:
+            case THEME_LIGHT_GREEN_STYLES:
                 activity.setTheme(R.style.Theme_LightGreenStyle);
                 break;
-            case THEME_PurpleStyles:
+            case THEME_PURPLE_STYLES:
                 activity.setTheme(R.style.Theme_PurpleStyle);
                 break;
         }

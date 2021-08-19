@@ -12,17 +12,18 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColorPrimary">@color/white</item>
     </style>
 
-    <style name="Theme.RedStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.RedStyle" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/primaryLightColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColor</item>
-        <item name="android:textColor">@color/primaryTextColor</item>
-        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/black</item>
         <item name="android:buttonStyle">@color/primaryColor</item>
         <item name="buttonStyle">@color/primaryColor</item>
         <item name="android:windowBackground">@drawable/red</item>
@@ -35,8 +36,8 @@
         <item name="colorSecondary">@color/secondaryColorBlue</item>
         <item name="colorSecondaryVariant">@color/secondaryLightColorBlue</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColorBlue</item>
-        <item name="android:textColor">@color/primaryTextColorBlue</item>
-        <item name="android:textColorSecondary">@color/secondaryTextColorBlue</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/black</item>
         <item name="android:windowBackground">@drawable/blue</item>
     </style>
 
@@ -48,8 +49,8 @@
         <item name="colorSecondaryVariant">@color/secondaryLightColorGreen</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColorGreen
         </item>
-        <item name="android:textColor">@color/primaryTextColorGreen</item>
-        <item name="android:textColorSecondary">@color/secondaryTextColorGreen</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/black</item>
         <item name="android:windowBackground">@drawable/green</item>
     </style>
 
@@ -61,8 +62,8 @@
         <item name="colorSecondaryVariant">@color/secondaryLightColorOrange</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColorOrange
         </item>
-        <item name="android:textColor">@color/primaryTextColorOrange</item>
-        <item name="android:textColorSecondary">@color/secondaryTextColorOrange</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/black</item>
         <item name="android:windowBackground">@drawable/redorange</item>
     </style>
 
@@ -73,8 +74,8 @@
         <item name="colorSecondary">@color/secondaryColorGrey</item>
         <item name="colorSecondaryVariant">@color/secondaryLightColorGrey</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColorGrey</item>
-        <item name="android:textColor">@color/primaryTextColorGrey</item>
-        <item name="android:textColorSecondary">@color/secondaryTextColorGrey</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/black</item>
         <item name="android:windowBackground">@drawable/grey</item>
     </style>
 
@@ -87,8 +88,8 @@
         <item name="android:statusBarColor" tools:targetApi="l">
             @color/secondaryDarkColorLightGreen
         </item>
-        <item name="android:textColor">@color/primaryTextColorLightGreen</item>
-        <item name="android:textColorSecondary">@color/secondaryTextColorLightGreen</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/black</item>
         <item name="android:windowBackground">@drawable/lightgreen</item>
     </style>
 
@@ -100,8 +101,8 @@
         <item name="colorSecondaryVariant">@color/secondaryLightColorYellow</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColorYellow
         </item>
-        <item name="android:textColor">@color/primaryTextColorYellow</item>
-        <item name="android:textColorSecondary">@color/secondaryTextColorYellow</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/black</item>
         <item name="android:windowBackground">@drawable/yellow</item>
     </style>
 
@@ -113,8 +114,8 @@
         <item name="colorSecondaryVariant">@color/secondaryLightColorPurple</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColorPurple
         </item>
-        <item name="android:textColor">@color/primaryTextColorPurple</item>
-        <item name="android:textColorSecondary">@color/secondaryTextColorPurple</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/black</item>
         <item name="android:windowBackground">@drawable/purple</item>
     </style>
 </resources>

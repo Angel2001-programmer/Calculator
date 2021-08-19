@@ -20,13 +20,17 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
     private static final String TAG = "BCFragment";
     boolean Blue = false, Red = false, Yellow = false, Green = false, LTGreen = false,
             Orange = false, Grey = false, Purple = false, original = false;
+    private int buttonTap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityBackgroundColoursBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
+        Utils.onActivityCreateSetTheme(this);
         setContentView(view);
+
+        Red = getIntent().getBooleanExtra("red", false);
 
         binding.ibBlue.setOnClickListener(this);
         binding.ibPurple.setOnClickListener(this);
@@ -43,6 +47,7 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.ib_Blue:
                 Blue = true;
@@ -50,7 +55,19 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
                         Snackbar.LENGTH_LONG)
                         .show();
                 Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
-                break;
+
+//                if(buttonTap == 0){
+//                    buttonTap = 2;
+//                    Blue = true;
+//                    Snackbar.make(v, "Colour blue was selected, " + "\n to continue press the confirm button",
+//                            Snackbar.LENGTH_LONG)
+//                            .show();
+//                    Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
+//                } else if (buttonTap == 2){
+//                    buttonTap = 0;
+//                    Blue = false;
+//                    Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
+//                }
 
             case R.id.ib_Green:
                 Green = true;

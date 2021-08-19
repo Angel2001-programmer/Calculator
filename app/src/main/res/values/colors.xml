@@ -71,4 +71,16 @@
     <color name="secondaryDarkColorPurple">#790e8b</color>
     <color name="primaryTextColorPurple">#fafafa</color>
     <color name="secondaryTextColorPurple">#212121</color>
+
+    <color name="background">#212121</color>
+    <color name="accent">#81d4fa</color>
+    <color name="primaryColorDark">#424242</color>
+    <color name="primaryLightColorDark">#6d6d6d</color>
+    <color name="primaryDarkColorDark">#1b1b1b</color>
+    <color name="secondaryColorDark">#424242</color>
+    <color name="secondaryLightColorDark">#6d6d6d</color>
+    <color name="secondaryDarkColorDark">#1b1b1b</color>
+    <color name="primaryTextColorDark">#ffffff</color>
+    <color name="secondaryTextColorDark">#ffffff</color>
+
 </resources>

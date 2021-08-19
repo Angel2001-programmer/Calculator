@@ -25,8 +25,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:background="#FFFFFF"
+        android:paddingStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck">
@@ -39,8 +38,7 @@
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/switchNightmode"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginEnd="8dp"
+                android:layout_height="wrap_content"
                 android:text="@string/night_mode"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="8dp"
@@ -64,9 +62,8 @@
                     android:focusable="true"
                     android:minHeight="48dp"
                     android:text="@string/calculator_backgrounds"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
                     android:textStyle="bold"
+                    android:textSize="15sp"
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="56dp" />
 
