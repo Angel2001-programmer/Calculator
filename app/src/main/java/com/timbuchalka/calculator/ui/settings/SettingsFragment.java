@@ -37,6 +37,7 @@ public class SettingsFragment extends Fragment {
     private FragmentSettingsBinding binding;
     private static final String TAG = "SettingsFragment";
     boolean NightMode = false;
+    SharedPreferences mSharedPreferences = null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,25 +55,49 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-        SharedPreferences preferences =
-                getContext().getSharedPreferences("com.timbuchalka.calculator", MODE_PRIVATE);
-        boolean switchState = preferences.getBoolean("status", false);
-        binding.switchNightmode.setChecked(switchState);
+//        SharedPreferences preferences =
+//                getContext().getSharedPreferences("com.timbuchalka.calculator", MODE_PRIVATE);
+//        boolean switchState = preferences.getBoolean("status", false);
+//        binding.switchNightmode.setChecked(switchState);
+
+        mSharedPreferences = getActivity().getSharedPreferences("night", 0);
+        Boolean booleanValue = mSharedPreferences.getBoolean("night_mode", true);
+        if (booleanValue) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            binding.switchNightmode.setChecked(true);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            binding.switchNightmode.setChecked(false);
+        }
 
         binding.switchNightmode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                SharedPreferences.Editor editor = requireActivity().getSharedPreferences
-                        ("com.timbuchalka.calculator", MODE_PRIVATE).edit();
-                editor.putBoolean("status", binding.switchNightmode.isChecked());
+
                 if (isChecked) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    NightMode = true;
+                    binding.switchNightmode.setChecked(true);
+                    SharedPreferences.Editor editor = mSharedPreferences.edit();
+                    editor.putBoolean("night_mode", true);
+                    editor.apply();
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    NightMode = false;
+                    binding.switchNightmode.setChecked(false);
+                    SharedPreferences.Editor editor = mSharedPreferences.edit();
+                    editor.putBoolean("night_mode", false);
+                    editor.apply();
                 }
-                editor.apply();
+//                SharedPreferences.Editor editor = requireActivity().getSharedPreferences
+//                        ("com.timbuchalka.calculator", MODE_PRIVATE).edit();
+//                editor.putBoolean("status", binding.switchNightmode.isChecked());
+//                if (isChecked) {
+//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//                    NightMode = true;
+//                } else {
+//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//                    NightMode = false;
+//                }
+//                editor.apply();
             }
         });
         binding.textView.setOnClickListener(new View.OnClickListener() {
