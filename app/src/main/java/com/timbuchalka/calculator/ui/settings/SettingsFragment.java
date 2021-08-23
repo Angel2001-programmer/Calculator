@@ -41,6 +41,7 @@ public class SettingsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        Utils.onActivityCreateSetTheme(getActivity());
         SettingsViewModel =
                 new ViewModelProvider(this).get(SettingsViewModel.class);
 
@@ -63,10 +64,10 @@ public class SettingsFragment extends Fragment {
         mSharedPreferences = getActivity().getSharedPreferences("night", 0);
         Boolean booleanValue = mSharedPreferences.getBoolean("night_mode", true);
         if (booleanValue) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             binding.switchNightmode.setChecked(true);
         } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             binding.switchNightmode.setChecked(false);
         }
 
@@ -75,17 +76,17 @@ public class SettingsFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 if (isChecked) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     binding.switchNightmode.setChecked(true);
                     SharedPreferences.Editor editor = mSharedPreferences.edit();
                     editor.putBoolean("night_mode", true);
                     editor.apply();
                 } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    Utils.changeToTheme(requireActivity(), Utils.THEME_DEFAULT);
                     binding.switchNightmode.setChecked(false);
                     SharedPreferences.Editor editor = mSharedPreferences.edit();
                     editor.putBoolean("night_mode", false);
                     editor.apply();
+                    requireActivity().recreate();
                 }
 //                SharedPreferences.Editor editor = requireActivity().getSharedPreferences
 //                        ("com.timbuchalka.calculator", MODE_PRIVATE).edit();

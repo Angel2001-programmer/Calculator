@@ -46,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
         Purple = getIntent().getBooleanExtra("purple", false);
         original = getIntent().getBooleanExtra("white", false);
 
+        if (switchState) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
         if (Red) {
             Utils.changeToTheme(this, Utils.THEME_RED_STYLES);
 
