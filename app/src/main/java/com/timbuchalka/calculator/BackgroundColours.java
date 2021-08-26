@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.snackbar.Snackbar;
 import com.timbuchalka.calculator.databinding.ActivityBackgroundColoursBinding;
 import com.timbuchalka.calculator.ui.settings.SettingsFragment;
@@ -50,24 +51,22 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
 
         switch (v.getId()) {
             case R.id.ib_Blue:
-                Blue = true;
-                Snackbar.make(v, "Colour blue was selected, " + "\n to continue press the confirm button",
-                        Snackbar.LENGTH_LONG)
-                        .show();
-                Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
-
-//                if(buttonTap == 0){
-//                    buttonTap = 2;
-//                    Blue = true;
-//                    Snackbar.make(v, "Colour blue was selected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
-//                } else if (buttonTap == 2){
-//                    buttonTap = 0;
-//                    Blue = false;
-//                    Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
-//                }
+                if (buttonTap == 0) {
+                    buttonTap = 2;
+                    Blue = true;
+                    Snackbar.make(v, "Colour blue was selected, " + "\n to continue press the confirm button",
+                            Snackbar.LENGTH_LONG)
+                            .show();
+                    Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
+                } else if (buttonTap == 2) {
+                    Snackbar.make(v, "Colour blue was unselected, " + "\n to continue press the confirm button",
+                            Snackbar.LENGTH_LONG)
+                            .show();
+                    buttonTap = 0;
+                    Blue = false;
+                    Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
+                }
+                break;
 
             case R.id.ib_Green:
                 Green = true;

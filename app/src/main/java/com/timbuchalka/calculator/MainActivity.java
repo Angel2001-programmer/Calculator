@@ -1,7 +1,10 @@
 package com.timbuchalka.calculator;
 
+import android.app.UiModeManager;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,7 +20,9 @@ import com.timbuchalka.calculator.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    boolean Red, Blue, Green, Orange, Yellow, Grey, LTGreen, Purple, original, switchState;
+    boolean Red, Blue, Green, Orange, Yellow, Grey, LTGreen, Purple, original, saveState;
+    SharedPreferences mSharedPreferences = null;
+    private UiModeManager uiModeManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
         LTGreen = getIntent().getBooleanExtra("light green", false);
         Purple = getIntent().getBooleanExtra("purple", false);
         original = getIntent().getBooleanExtra("white", false);
+        saveState = getIntent().getBooleanExtra("saveState", false);
+
+        mSharedPreferences = getSharedPreferences("night", 0);
+        Boolean saveState = mSharedPreferences.getBoolean("night_mode", true);
+        if (saveState) {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
         if (Red) {
             Utils.changeToTheme(this, Utils.THEME_RED_STYLES);
@@ -75,3 +89,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+
+
+

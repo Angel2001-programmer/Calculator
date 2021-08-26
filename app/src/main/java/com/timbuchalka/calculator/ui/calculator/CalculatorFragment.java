@@ -43,6 +43,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     int integer, buttonTap;
     DatabaseReference reference;
     Calculation mCalculation;
+    public final static int THEME_DEFAULT = 0;
 
     Boolean Addition = false, Subtraction = false, Multiplication = false, Division = false;
     private static final String TAG = "MainActivity";

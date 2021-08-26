@@ -2,6 +2,8 @@ package com.timbuchalka.calculator.ui.settings;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import static com.timbuchalka.calculator.Utils.THEME_DEFAULT;
+
 import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
@@ -38,6 +40,7 @@ public class SettingsFragment extends Fragment {
     private static final String TAG = "SettingsFragment";
     boolean NightMode = false;
     SharedPreferences mSharedPreferences = null;
+    boolean saveState = false;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -55,60 +58,49 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-//        SharedPreferences preferences =
-//                getContext().getSharedPreferences("com.timbuchalka.calculator", MODE_PRIVATE);
-//        boolean switchState = preferences.getBoolean("status", false);
-//        binding.switchNightmode.setChecked(switchState);
-
         mSharedPreferences = getActivity().getSharedPreferences("night", 0);
-        Boolean booleanValue = mSharedPreferences.getBoolean("night_mode", true);
-        if (booleanValue) {
+        saveState = mSharedPreferences.getBoolean("night_mode", true);
+        if (saveState) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             binding.switchNightmode.setChecked(true);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             binding.switchNightmode.setChecked(false);
+
         }
 
         binding.switchNightmode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
                 if (isChecked) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     binding.switchNightmode.setChecked(true);
                     SharedPreferences.Editor editor = mSharedPreferences.edit();
                     editor.putBoolean("night_mode", true);
                     editor.apply();
+                    requireActivity().recreate();
+
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     binding.switchNightmode.setChecked(false);
                     SharedPreferences.Editor editor = mSharedPreferences.edit();
                     editor.putBoolean("night_mode", false);
                     editor.apply();
+                    requireActivity().recreate();
+                    if (saveState) {
+                        Utils.changeToTheme(getActivity(), Utils.THEME_DEFAULT);
+                    }
                 }
-//                SharedPreferences.Editor editor = requireActivity().getSharedPreferences
-//                        ("com.timbuchalka.calculator", MODE_PRIVATE).edit();
-//                editor.putBoolean("status", binding.switchNightmode.isChecked());
-//                if (isChecked) {
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                    NightMode = true;
-//                } else {
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                    NightMode = false;
-//                }
-//                editor.apply();
             }
         });
+
         binding.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences preferences =
-                        requireActivity().getSharedPreferences("com.timbuchalka.calculator", MODE_PRIVATE);
-                boolean switchState = preferences.getBoolean("status", false);
-
-                if (switchState) {
+                mSharedPreferences = getActivity().getSharedPreferences("night", 0);
+                Boolean saveState = mSharedPreferences.getBoolean("night_mode", true);
+                if (saveState) {
                     Snackbar.make(v, "Background button cannot be clicked because, " + "\n you enabled darkmode.",
                             Snackbar.LENGTH_LONG)
                             .show();
@@ -118,6 +110,9 @@ public class SettingsFragment extends Fragment {
                 }
             }
         });
+
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        intent.putExtra("saveState", saveState);
         return root;
     }
 

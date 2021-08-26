@@ -16,6 +16,8 @@ public class Utils {
     public final static int THEME_GREEN_STYLES = 6;
     public final static int THEME_LIGHT_GREEN_STYLES = 7;
     public final static int THEME_PURPLE_STYLES = 8;
+    public final static int THEME_DARKMODE = 9;
+
 
     public static void changeToTheme(Activity activity, int theme) {
         sTheme = theme;
@@ -52,6 +54,9 @@ public class Utils {
                 break;
             case THEME_PURPLE_STYLES:
                 activity.setTheme(R.style.Theme_PurpleStyle);
+                break;
+            case THEME_DARKMODE:
+                activity.setTheme(R.style.Theme_MyApplication);
                 break;
         }
     }
