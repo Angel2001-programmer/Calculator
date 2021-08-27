@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.timbuchalka.calculator" >
+    package="com.timbuchalka.calculator">
+
+    <android:supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
 
     <application
         android:allowBackup="true"
@@ -22,8 +29,7 @@
 
         <activity
             android:name=".BackgroundColours"
-            android:label="@string/title_activity_background"
-            android:configChanges="orientation|screenSize"></activity>
+            android:configChanges="orientation|screenSize"
+            android:label="@string/background_colours"></activity>
     </application>
-
 </manifest>

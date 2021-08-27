@@ -18,8 +18,20 @@
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="selected"
         app:itemIconTint="@color/nav_color_selected"
-        app:itemIconSize="28dp"
-        app:itemTextColor="?android:textColorSecondary" />
+        app:itemIconSize="28dp">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <ImageView
+        android:id="@+id/overlay_ImgView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/overlay" />
 
     <fragment
         android:id="@+id/nav_host_fragment_activity_main"
@@ -30,4 +42,5 @@
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

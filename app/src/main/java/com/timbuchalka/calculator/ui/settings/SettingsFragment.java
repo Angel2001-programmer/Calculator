@@ -105,6 +105,7 @@ public class SettingsFragment extends Fragment {
                             Snackbar.LENGTH_LONG)
                             .show();
                 } else {
+
                     Intent intent = new Intent(getActivity(), BackgroundColours.class);
                     startActivity(intent);
                 }

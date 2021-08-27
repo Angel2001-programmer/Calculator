@@ -9,6 +9,7 @@
         <entry key="..\:/AndroidCourses/Calculator/app/src/main/res/layout/fragment_history.xml" value="0.1838768115942029" />
         <entry key="..\:/AndroidCourses/Calculator/app/src/main/res/layout/fragment_settings.xml" value="0.1337386018237082" />
         <entry key="..\:/AndroidCourses/Calculator/app/src/main/res/layout/item.xml" value="0.264" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/bluebackground.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/button.xml" value="0.39794871794871794" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/button_blue.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/button_green.xml" value="0.1" />
@@ -30,14 +31,22 @@
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/ellipse_purple_50.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/ellipse_red_50.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/ellipse_yellow_50.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/greenbackground.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/greybackground.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/itemscolour.xml" value="0.39794871794871794" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/ltgreenbackground.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/nav_color_selected.xml" value="0.1" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/orangebackground.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/outline_calculate_24.xml" value="0.1" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/outline_history_24.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/outline_settings_24.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/overlay.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/purplebackground.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/redbackground.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/yellowbackground.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/activity_background_colours.xml" value="0.33" />
-        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/activity_main.xml" value="0.47858197932053176" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/activity_main.xml" value="0.35271317829457366" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/activity_main2.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/background_colours.xml" value="0.24814814814814815" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/fragment_background_colours.xml" value="0.3880208333333333" />

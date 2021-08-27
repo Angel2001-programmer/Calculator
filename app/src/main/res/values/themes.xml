@@ -24,9 +24,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColor</item>
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/black</item>
-        <item name="android:buttonStyle">@color/primaryColor</item>
-        <item name="buttonStyle">@color/primaryColor</item>
-        <item name="android:windowBackground">@drawable/red</item>
+        <item name="android:windowBackground">@drawable/redbackground</item>
     </style>
 
     <style name="Theme.BlueStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -38,7 +36,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColorBlue</item>
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/black</item>
-        <item name="android:windowBackground">@drawable/blue</item>
+        <item name="android:windowBackground">@drawable/bluebackground</item>
     </style>
 
     <style name="Theme.GreenStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -51,7 +49,7 @@
         </item>
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/black</item>
-        <item name="android:windowBackground">@drawable/green</item>
+        <item name="android:windowBackground">@drawable/greenbackground</item>
     </style>
 
     <style name="Theme.OrangeStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -63,8 +61,8 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColorOrange
         </item>
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
-        <item name="android:textColorSecondary">@color/black</item>
-        <item name="android:windowBackground">@drawable/redorange</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:windowBackground">@drawable/orangebackground</item>
     </style>
 
     <style name="Theme.GreyStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -76,7 +74,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColorGrey</item>
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/black</item>
-        <item name="android:windowBackground">@drawable/grey</item>
+        <item name="android:windowBackground">@drawable/greybackground</item>
     </style>
 
     <style name="Theme.LightGreenStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -90,7 +88,7 @@
         </item>
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/black</item>
-        <item name="android:windowBackground">@drawable/lightgreen</item>
+        <item name="android:windowBackground">@drawable/ltgreenbackground</item>
     </style>
 
     <style name="Theme.YellowStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -101,9 +99,10 @@
         <item name="colorSecondaryVariant">@color/secondaryLightColorYellow</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColorYellow
         </item>
-        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorPrimary">@color/black</item>
         <item name="android:textColorSecondary">@color/black</item>
-        <item name="android:windowBackground">@drawable/yellow</item>
+        <item name="android:titleTextStyle">@color/black</item>
+        <item name="android:windowBackground">@drawable/yellowbackground</item>
     </style>
 
     <style name="Theme.PurpleStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -116,7 +115,7 @@
         </item>
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/black</item>
-        <item name="android:windowBackground">@drawable/purple</item>
+        <item name="android:windowBackground">@drawable/purplebackground</item>
     </style>
 </resources>
 

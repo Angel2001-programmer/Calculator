@@ -5,6 +5,8 @@ import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.timbuchalka.calculator.databinding.ActivityMainBinding;
+
 public class Utils {
     private static int sTheme;
     public final static int THEME_DEFAULT = 0;
@@ -17,7 +19,6 @@ public class Utils {
     public final static int THEME_LIGHT_GREEN_STYLES = 7;
     public final static int THEME_PURPLE_STYLES = 8;
     public final static int THEME_DARKMODE = 9;
-
 
     public static void changeToTheme(Activity activity, int theme) {
         sTheme = theme;

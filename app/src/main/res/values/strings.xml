@@ -12,5 +12,6 @@
     <string name="calculator_backgrounds">Calculator Backgrounds</string>
     <string name="title_activity_test">test</string>
     <string name="title_activity_background">activity_background_colours</string>
-    <string name="string_please_select_a_colour">Please select a colour</string>/>
+    <string name="string_please_select_a_colour">Please select a colour</string>
+    <string name="background_colours">Background Colours</string>/>
 </resources>

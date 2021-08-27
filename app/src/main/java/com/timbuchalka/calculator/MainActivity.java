@@ -60,15 +60,8 @@ public class MainActivity extends AppCompatActivity {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
 
-        if (switchState) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        }
-
         if (Red) {
             Utils.changeToTheme(this, Utils.THEME_RED_STYLES);
-
         } else if (Blue) {
             Utils.changeToTheme(this, Utils.THEME_BLUE_STYLES);
 
