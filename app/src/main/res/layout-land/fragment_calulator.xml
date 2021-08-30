@@ -27,18 +27,18 @@
     <TextView
         android:id="@+id/tvResults"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
         android:inputType="number|numberDecimal"
         android:maxLength="11"
         android:minHeight="48dp"
         android:textAlignment="textEnd"
         android:textColor="?android:textColorPrimary"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="@+id/tableLayout2"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/tableLayout"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck"
         tools:text="0" />
 
@@ -46,11 +46,10 @@
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/tvResults">
 
         <TableRow
             android:layout_width="match_parent"
@@ -64,39 +63,30 @@
                 android:background="@drawable/custombutton"
                 android:text="AC"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="32sp" />
+                android:textSize="30sp" />
 
             <Button
-                android:id="@+id/btnAdd"
+                android:id="@+id/btn0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/custombutton"
-                android:text="+"
+                android:text="0"
                 android:textColor="?android:textColorPrimary"
-
-                android:textSize="32sp" />
+                android:textSize="30sp" />
 
             <Button
-                android:id="@+id/btnMinus"
+                android:id="@+id/btn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/custombutton"
-                android:text="-"
+                android:text="1"
                 android:textColor="?android:textColorPrimary"
+                android:textSize="30sp"
 
-                android:textSize="32sp" />
 
-            <Button
-                android:id="@+id/btnMultiply"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custombutton"
-                android:text="X"
-                android:textColor="?android:textColorPrimary"
-
-                android:textSize="32sp" />
+                />
 
         </TableRow>
 
@@ -114,7 +104,7 @@
                 android:text="9"
                 android:textColor="?android:textColorPrimary"
 
-                android:textSize="32sp"
+                android:textSize="30sp"
 
                 />
 
@@ -127,7 +117,7 @@
                 android:text="8"
                 android:textColor="?android:textColorPrimary"
 
-                android:textSize="32sp"
+                android:textSize="30sp"
 
 
                 />
@@ -141,20 +131,7 @@
                 android:text="7"
                 android:textColor="?android:textColorPrimary"
 
-                android:textSize="32sp"
-
-
-                />
-
-            <Button
-                android:id="@+id/btnDivide"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custombutton"
-                android:text="÷"
-                android:textColor="?android:textColorPrimary"
-
-                android:textSize="32sp"
+                android:textSize="30sp"
 
 
                 />
@@ -174,8 +151,7 @@
                 android:background="@drawable/custombutton"
                 android:text="6"
                 android:textColor="?android:textColorPrimary"
-
-                android:textSize="32sp"
+                android:textSize="30sp"
 
                 />
 
@@ -188,7 +164,7 @@
                 android:text="5"
                 android:textColor="?android:textColorPrimary"
 
-                android:textSize="32sp"
+                android:textSize="30sp"
 
                 />
 
@@ -201,18 +177,64 @@
                 android:text="4"
                 android:textColor="?android:textColorPrimary"
 
-                android:textSize="32sp"
+                android:textSize="30sp"
 
                 />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp">
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/tableLayout">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnMinus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/custombutton"
+                android:text="-"
+                android:textColor="?android:textColorPrimary"
+
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/custombutton"
+                android:text="+"
+                android:textColor="?android:textColorPrimary"
+
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/btnEquals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/custombutton"
                 android:text="="
                 android:textColor="?android:textColorPrimary"
-                android:textSize="32sp"
+                android:textSize="30sp"
 
 
                 />
@@ -225,19 +247,6 @@
             android:layout_marginTop="8dp">
 
             <Button
-                android:id="@+id/btn3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custombutton"
-                android:text="3"
-                android:textColor="?android:textColorPrimary"
-                android:textSize="32sp"
-
-
-                />
-
-            <Button
                 android:id="@+id/btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -245,58 +254,84 @@
                 android:background="@drawable/custombutton"
                 android:text="2"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="32sp"
+                android:textSize="30sp"
 
 
                 />
 
             <Button
-                android:id="@+id/btn1"
+                android:id="@+id/btn3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/custombutton"
-                android:text="1"
+                android:text="3"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="32sp"
+                android:textSize="30sp"
 
 
                 />
 
             <Button
-                android:id="@+id/btn0"
+                android:id="@+id/btnMultiply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/custombutton"
-                android:text="0"
+                android:text="X"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="32sp" />
 
+                android:textSize="30sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="8dp">
 
             <Button
                 android:id="@+id/btnDot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_span="4"
+                android:layout_span="2"
                 android:background="@drawable/custombutton"
+                android:layout_marginRight="10dp"
                 android:text="."
                 android:textColor="?android:textColorPrimary"
-                android:textSize="32sp" />
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btnDivide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/custombutton"
+                android:text="÷"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="30sp"
+
+
+                />
 
         </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </TableLayout>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3871409" />
+        app:layout_constraintGuide_begin="310dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
