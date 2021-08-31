@@ -46,10 +46,12 @@
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/redbackground.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/drawable/yellowbackground.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout-land/activity_main.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout-land/fragment_calculator.xml" value="0.300390625" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout-land/fragment_calulator.xml" value="0.246875" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout-land/fragment_land.xml" value="0.300390625" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout-sw320dp/fragment_calulator.xml" value="0.25277777777777777" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout-sw480dp/fragment_calulator.xml" value="0.2" />
-        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout-sw600dp/fragment_calulator.xml" value="0.291015625" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout-sw600dp/fragment_calulator.xml" value="0.5" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout-sw720dp/fragment_calulator.xml" value="0.25" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout-w600dp/fragment_calulator.xml" value="0.1421875" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/activity_background_colours.xml" value="0.33" />
@@ -57,6 +59,7 @@
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/activity_main2.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/background_colours.xml" value="0.24814814814814815" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/fragment_background_colours.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/fragment_calculator_land.xml" value="0.19093406593406592" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/fragment_calulator.xml" value="0.25" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/fragment_history.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/haloc/AndroidStudioProjects/Calculator2/app/src/main/res/layout/fragment_home.xml" value="0.3880208333333333" />

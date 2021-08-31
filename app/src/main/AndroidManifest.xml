@@ -10,20 +10,16 @@
         android:theme="@style/Theme.Calculator">
         <activity
             android:name=".MainActivity"
-            android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".BackgroundColours"
-            android:configChanges="orientation|screenSize"
             android:label="@string/background_colours">
-
         </activity>
     </application>
 </manifest>

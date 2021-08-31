@@ -1,7 +1,5 @@
 package com.timbuchalka.calculator.ui.calculator;
 
-import static java.security.AccessController.getContext;
-
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,8 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.timbuchalka.calculator.R;
 import com.timbuchalka.calculator.Utils;
-import com.timbuchalka.calculator.databinding.FragmentCalulatorBinding;
 import com.timbuchalka.calculator.Calculation;
+import com.timbuchalka.calculator.databinding.FragmentCalulatorBinding;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -43,7 +40,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     int integer, buttonTap;
     DatabaseReference reference;
     Calculation mCalculation;
-    public final static int THEME_DEFAULT = 0;
 
     Boolean Addition = false, Subtraction = false, Multiplication = false, Division = false;
     private static final String TAG = "MainActivity";
@@ -127,7 +123,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 // TODO Auto-generated method stub
             }
         });
-
         return root;
     }
 
@@ -449,16 +444,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         integer = (int) Math.round(Float.parseFloat(result));
         Log.d(TAG, "is even: " + yourFormattedString);
         binding.tvResults.setText(String.valueOf(integer));
-    }
-
-    public void disableButtons() {
-        binding.btnAdd.setEnabled(false);
-        binding.btnMinus.setEnabled(false);
-        binding.btnDivide.setEnabled(false);
-        binding.btnMultiply.setEnabled(false);
-
-        Toast.makeText(getActivity(), "Operations have been disabled," +
-                " this is to prevent more than two number being added together.", Toast.LENGTH_LONG).show();
     }
 
     public void enableButtons() {

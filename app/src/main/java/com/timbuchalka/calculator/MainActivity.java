@@ -2,7 +2,9 @@ package com.timbuchalka.calculator;
 
 import android.app.UiModeManager;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,10 +21,10 @@ import com.timbuchalka.calculator.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
     private ActivityMainBinding binding;
     boolean Red, Blue, Green, Orange, Yellow, Grey, LTGreen, Purple, original, saveState;
     SharedPreferences mSharedPreferences = null;
-    private UiModeManager uiModeManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (original) {
             Utils.changeToTheme(this, Utils.THEME_DEFAULT);
         }
+
     }
 }
 

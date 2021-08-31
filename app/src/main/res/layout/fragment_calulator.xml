@@ -27,15 +27,14 @@
     <TextView
         android:id="@+id/tvResults"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="53dp"
         android:inputType="number|numberDecimal"
         android:maxLength="11"
         android:minHeight="48dp"
         android:textAlignment="textEnd"
         android:textColor="?android:textColorPrimary"
+        android:textColorHint="?android:textColorPrimary"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="@+id/tableLayout"
         app:layout_constraintStart_toStartOf="@+id/tableLayout"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
@@ -45,12 +44,13 @@
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResults">
 
         <TableRow
             android:layout_width="match_parent"
@@ -159,6 +159,7 @@
 
                 />
 
+
         </TableRow>
 
         <TableRow
@@ -206,17 +207,13 @@
                 />
 
             <Button
-                android:id="@+id/btnEquals"
+                android:id="@+id/btnDot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/custombutton"
-                android:text="="
+                android:text="."
                 android:textColor="?android:textColorPrimary"
-                android:textSize="32sp"
-
-
-                />
-
+                android:textSize="32sp" />
         </TableRow>
 
         <TableRow
@@ -280,14 +277,17 @@
             android:layout_marginTop="15dp">
 
             <Button
-                android:id="@+id/btnDot"
+                android:id="@+id/btnEquals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="4"
                 android:background="@drawable/custombutton"
-                android:text="."
+                android:text="="
                 android:textColor="?android:textColorPrimary"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+
+
+                />
 
         </TableRow>
     </TableLayout>
@@ -297,6 +297,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3871409" />
+        app:layout_constraintGuide_percent="0.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
