@@ -85,7 +85,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         mCalculation = new Calculation();
         onResume();
 
-        binding.tvResults.addTextChangedListener(new TextWatcher() {
+        binding.editTextResults.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -100,7 +100,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
             @Override
             public void afterTextChanged(Editable s) {
-                binding.tvResults.removeTextChangedListener(this);
+                binding.editTextResults.removeTextChangedListener(this);
 
                 try {
                     String givenString = s.toString();
@@ -111,7 +111,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                     longval = Long.parseLong(givenString);
                     DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
                     String formattedString = decimalFormat.format(longval);
-                    binding.tvResults.setText(formattedString);
+                    binding.editTextResults.setText(formattedString);
 
                 } catch (NumberFormatException numberFormatException) {
                     numberFormatException.printStackTrace();
@@ -119,7 +119,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                     e.printStackTrace();
                 }
 
-                binding.tvResults.addTextChangedListener(this);
+                binding.editTextResults.addTextChangedListener(this);
                 // TODO Auto-generated method stub
             }
         });
@@ -134,49 +134,49 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        String append1 = binding.tvResults.getText().toString();
+        String append1 = binding.editTextResults.getText().toString();
 
         switch (v.getId()) {
             case R.id.btn0:
-                binding.tvResults.append("0");
+                binding.editTextResults.append("0");
                 break;
             case R.id.btn1:
-                binding.tvResults.append("1");
+                binding.editTextResults.append("1");
                 break;
             case R.id.btn2:
-                binding.tvResults.append("2");
+                binding.editTextResults.append("2");
                 break;
             case R.id.btn3:
-                binding.tvResults.append("3");
+                binding.editTextResults.append("3");
                 break;
             case R.id.btn4:
-                binding.tvResults.append("4");
+                binding.editTextResults.append("4");
                 break;
             case R.id.btn5:
-                binding.tvResults.append("5");
+                binding.editTextResults.append("5");
                 break;
             case R.id.btn6:
-                binding.tvResults.append("6");
+                binding.editTextResults.append("6");
                 break;
             case R.id.btn7:
-                binding.tvResults.append("7");
+                binding.editTextResults.append("7");
                 break;
             case R.id.btn8:
-                binding.tvResults.append("8");
+                binding.editTextResults.append("8");
                 break;
             case R.id.btn9:
-                binding.tvResults.append("9");
+                binding.editTextResults.append("9");
                 break;
             case R.id.btnDot:
                 if (append1.matches("")) {
-                    binding.tvResults.append("0.");
+                    binding.editTextResults.append("0.");
                 } else {
-                    binding.tvResults.append(".");
+                    binding.editTextResults.append(".");
                 }
 
                 break;
             case R.id.btnAC:
-                binding.tvResults.setText("");
+                binding.editTextResults.setText("");
                 append2 = null;
                 calculation1 = null;
                 calculation2 = null;
@@ -196,7 +196,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                     Log.d(TAG, "Value1: " + append1);
                 } else if (buttonTap == 2) {
                     buttonTap = 0;
-                    append2 = binding.tvResults.getText().toString();
+                    append2 = binding.editTextResults.getText().toString();
                     try {
                         num2 = Float.parseFloat(getDoubleFromString1(append2) + "");
                     } catch (ParseException e) {
@@ -217,7 +217,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                     Log.d(TAG, "Value1: " + append1);
                 } else if (buttonTap == 2) {
                     buttonTap = 0;
-                    append2 = binding.tvResults.getText().toString();
+                    append2 = binding.editTextResults.getText().toString();
                     try {
                         num2 = Float.parseFloat(getDoubleFromString1(append2) + "");
                     } catch (ParseException e) {
@@ -237,7 +237,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                     Log.d(TAG, "Value1: " + append1);
                 } else if (buttonTap == 2) {
                     buttonTap = 0;
-                    append2 = binding.tvResults.getText().toString();
+                    append2 = binding.editTextResults.getText().toString();
                     try {
                         num2 = Float.parseFloat(getDoubleFromString1(append2) + "");
                     } catch (ParseException e) {
@@ -258,7 +258,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                     Log.d(TAG, "Value1: " + append1);
                 } else if (buttonTap == 2) {
                     buttonTap = 0;
-                    append2 = binding.tvResults.getText().toString();
+                    append2 = binding.editTextResults.getText().toString();
                     try {
                         num2 = Float.parseFloat(getDoubleFromString1(append2) + "");
                     } catch (ParseException e) {
@@ -272,10 +272,10 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
             case R.id.btnEquals:
                 if (append1.isEmpty()) {
-                    binding.tvResults.setText("0");
+                    binding.editTextResults.setText("0");
                 }
 
-                append2 = binding.tvResults.getText().toString();
+                append2 = binding.editTextResults.getText().toString();
                 try {
                     num2 = Float.parseFloat(getDoubleFromString1(append2) + "");
                 } catch (ParseException e) {
@@ -411,7 +411,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
             e.printStackTrace();
         }
         calculation1 = append1;
-        binding.tvResults.setText("");
+        binding.editTextResults.setText("");
     }
 
     public void idkwhattonameyou(String result) {
@@ -434,7 +434,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
     public void setText(String result) {
         Log.d(TAG, "is odd: " + result);
-        binding.tvResults.setText(result);
+        binding.editTextResults.setText(result);
     }
 
     public void checkInteger(String result, double sum) {
@@ -443,7 +443,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
         integer = (int) Math.round(Float.parseFloat(result));
         Log.d(TAG, "is even: " + yourFormattedString);
-        binding.tvResults.setText(String.valueOf(integer));
+        binding.editTextResults.setText(String.valueOf(integer));
     }
 
     public void enableButtons() {

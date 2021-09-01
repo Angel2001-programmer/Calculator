@@ -12,8 +12,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:textColorPrimary">@color/black</item>
-        <item name="android:textColorSecondary">@color/white</item>
     </style>
 
     <style name="Theme.RedStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -23,6 +21,7 @@
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondaryDarkColor</item>
+        <item name="android:textColorTertiary">@color/primaryColorBlue</item>
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/primaryTextColor</item>
         <item name="android:windowBackground">@drawable/redbackground</item>

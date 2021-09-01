@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         saveState = getIntent().getBooleanExtra("saveState", false);
 
         mSharedPreferences = getSharedPreferences("night", 0);
-        Boolean saveState = mSharedPreferences.getBoolean("night_mode", true);
+        Boolean saveState = mSharedPreferences.getBoolean("night_mode", false);
         if (saveState) {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {

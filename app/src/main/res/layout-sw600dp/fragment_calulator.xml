@@ -7,6 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.calculator.CalculatorFragment">
 
+    <EditText
+        android:id="@+id/editTextResults2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:inputType="number|numberDecimal"
+        android:minHeight="48dp"
+        android:textAlignment="textEnd"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+        app:layout_constraintStart_toStartOf="@+id/tableLayout"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        tools:text="0" />
+
     <TextView
         android:id="@+id/text_calculator"
         android:layout_width="match_parent"
@@ -24,33 +38,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.172" />
 
-    <TextView
-        android:id="@+id/tvResults"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:maxLength="11"
-        android:minHeight="48dp"
-        android:textAlignment="textEnd"
-        android:textColor="?android:textColorPrimary"
-        android:textColorHint="?android:textColorPrimary"
-        android:textSize="60sp"
-        app:layout_constraintEnd_toEndOf="@+id/tableLayout"
-        app:layout_constraintStart_toStartOf="@+id/tableLayout"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        tools:ignore="SpeakableTextPresentCheck"
-        tools:text="0" />
-
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvResults">
+        app:layout_constraintTop_toBottomOf="@+id/editTextResults2">
 
         <TableRow
             android:layout_width="match_parent"

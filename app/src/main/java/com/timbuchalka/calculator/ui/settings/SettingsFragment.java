@@ -59,7 +59,7 @@ public class SettingsFragment extends Fragment {
         });
 
         mSharedPreferences = getActivity().getSharedPreferences("night", 0);
-        saveState = mSharedPreferences.getBoolean("night_mode", true);
+        saveState = mSharedPreferences.getBoolean("night_mode", false);
         if (saveState) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             binding.switchNightmode.setChecked(true);
