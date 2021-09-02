@@ -1,22 +1,50 @@
 package com.timbuchalka.calculator;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
+//    @Override
+//    protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        mDatabaseHelper = new DatabaseHelper(this);
+//
+//        populateListView();
+//    }
+//
+//    private void populateListView() {
+//        Log.d(TAG, "populateListView: Displaying data in the RecyclerView");
+//
+//        Cursor data = mDatabaseHelper.getData();
+//        ArrayList<String> listData = new ArrayList<>();
+//        while (data.moveToNext()){
+//            listData.add(data.getString(1));
+//        }
+//        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
+//        binding.r
+//    }
 
+public class RecyclerAdapter extends RecyclerView.Adapter<com.timbuchalka.calculator.RecyclerAdapter.MyViewHolder> {
+
+    public static final String TAG = "RecyclerAdapter";
     Context mContext;
-
     ArrayList<Calculation> mList;
+    DatabaseHelper mDatabaseHelper;
+
 
     public RecyclerAdapter(Context context, ArrayList<Calculation> list) {
         this.mContext = context;
@@ -42,7 +70,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         return mList.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvCalculation;
 
         public MyViewHolder(@NonNull View itemView) {

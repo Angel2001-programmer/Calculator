@@ -1,7 +1,7 @@
 package com.timbuchalka.calculator;
 
 public class Calculation {
-     String value0;
+    String value0;
 
     public Calculation() {
         this.value0 = value0;

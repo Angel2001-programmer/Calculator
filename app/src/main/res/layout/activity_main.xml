@@ -18,7 +18,8 @@
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="selected"
         app:itemIconTint="@color/nav_color_selected"
-        app:itemIconSize="28dp">
+        app:itemTextColor="?android:textColorPrimary"
+        app:itemIconSize="30dp">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

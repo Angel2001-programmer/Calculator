@@ -1,13 +1,9 @@
 package com.timbuchalka.calculator;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,7 +17,6 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
     private static final String TAG = "BCFragment";
     boolean Blue = false, Red = false, Yellow = false, Green = false, LTGreen = false,
             Orange = false, Grey = false, Purple = false, original = false;
-    private int buttonTap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,30 +62,6 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
                         .show();
                 Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
 
-//                if (buttonTap == 0) {
-//                    buttonTap = 2;
-//                    Blue = true;
-//                    Red = false;
-//                    Green = false;
-//                    Orange = false;
-//                    Yellow = false;
-//                    Grey = false;
-//                    LTGreen = false;
-//                    Purple = false;
-//                    original = false;
-//
-//                    Snackbar.make(v, "Colour blue was selected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
-//                } else if (buttonTap == 2) {
-//                    Snackbar.make(v, "Colour blue was unselected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    buttonTap = 0;
-//                    Blue = false;
-//                    Log.d(TAG, "onClick: " + Blue + "Blue is clicked");
-//                }
                 break;
 
             case R.id.ib_Green:
@@ -109,29 +80,6 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
                         .show();
                 Log.d(TAG, "onClick: " + Green + "Green is clicked");
 
-//                if (buttonTap == 0) {
-//                    buttonTap = 2;
-//                    Green = true;
-//                    Blue = false;
-//                    Red = false;
-//                    Orange = false;
-//                    Yellow = false;
-//                    Grey = false;
-//                    LTGreen = false;
-//                    Purple = false;
-//                    original = false;
-//                    Snackbar.make(v, "Colour green was selected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    Log.d(TAG, "onClick: " + Green + "Green is clicked");
-//                } else if (buttonTap == 2) {
-//                    Snackbar.make(v, "Colour green was unselected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    buttonTap = 0;
-//                    Green = false;
-//                    Log.d(TAG, "onClick: " + Green + "Green is clicked");
-//                }
                 break;
 
             case R.id.ib_Grey:
@@ -149,30 +97,6 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
                         Snackbar.LENGTH_LONG)
                         .show();
                 Log.d(TAG, "onClick: " + Grey + "Grey is clicked");
-
-//                if (buttonTap == 0) {
-//                    buttonTap = 2;
-//                    Grey = true;
-//                    Blue = false;
-//                    Red = false;
-//                    Green = false;
-//                    Orange = false;
-//                    Yellow = false;
-//                    LTGreen = false;
-//                    Purple = false;
-//                    original = false;
-//                    Snackbar.make(v, "Colour grey was selected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    Log.d(TAG, "onClick: " + Grey + "Grey is clicked");
-//                } else if (buttonTap == 2) {
-//                    Snackbar.make(v, "Colour grey was unselected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    buttonTap = 0;
-//                    Grey = false;
-//                    Log.d(TAG, "onClick: " + Grey + "Grey is clicked");
-//                }
 
                 break;
 
@@ -192,29 +116,6 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
                         .show();
                 Log.d(TAG, "onClick: " + LTGreen + "LTGreen is clicked");
 
-//                if (buttonTap == 0) {
-//                    buttonTap = 2;
-//                    LTGreen = true;
-//                    Blue = false;
-//                    Red = false;
-//                    Green = false;
-//                    Orange = false;
-//                    Yellow = false;
-//                    Grey = false;
-//                    Purple = false;
-//                    original = false;
-//                    Snackbar.make(v, "Colour light green was selected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    Log.d(TAG, "onClick: " + LTGreen + "LTGreen is clicked");
-//                } else if (buttonTap == 2) {
-//                    Snackbar.make(v, "Colour light green was unselected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    buttonTap = 0;
-//                    LTGreen = false;
-//                    Log.d(TAG, "onClick: " + LTGreen + "Light green is clicked");
-//                }
                 break;
 
             case R.id.ib_Yellow:
@@ -231,30 +132,8 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
                         Snackbar.LENGTH_LONG)
                         .show();
                 Log.d(TAG, "onClick: " + Yellow + "Yellow is clicked");
+
                 break;
-//                if (buttonTap == 0) {
-//                    buttonTap = 2;
-//                    Yellow = true;
-//                    Blue = false;
-//                    Red = false;
-//                    Green = false;
-//                    Orange = false;
-//                    Grey = false;
-//                    LTGreen = false;
-//                    Purple = false;
-//                    original = false;
-//                    Snackbar.make(v, "Colour yellow was selected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    Log.d(TAG, "onClick: " + Yellow + "Yellow is clicked");
-//                } else if (buttonTap == 2) {
-//                    Snackbar.make(v, "Colour yellow was unselected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    buttonTap = 0;
-//                    Yellow = false;
-//                    Log.d(TAG, "onClick: " + Yellow + "Yellow is clicked");
-//                }
 
             case R.id.ib_Orange:
 
@@ -272,29 +151,6 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
                         .show();
                 Log.d(TAG, "onClick: " + Orange + "Orange is clicked");
 
-//                if (buttonTap == 0) {
-//                    buttonTap = 2;
-//                    Orange = true;
-//                    Blue = false;
-//                    Red = false;
-//                    Green = false;
-//                    Yellow = false;
-//                    Grey = false;
-//                    LTGreen = false;
-//                    Purple = false;
-//                    original = false;
-//                    Snackbar.make(v, "Colour orange was selected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    Log.d(TAG, "onClick: " + Orange + "Orange is clicked");
-//                } else if (buttonTap == 2) {
-//                    Snackbar.make(v, "Colour orange was unselected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    buttonTap = 0;
-//                    Orange = false;
-//                    Log.d(TAG, "onClick: " + Orange + "Orange is clicked");
-//                }
                 break;
 
             case R.id.ib_Red:
@@ -313,29 +169,6 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
                         .show();
                 Log.d(TAG, "onClick: " + Red + "Red is clicked");
 
-//                if (buttonTap == 0) {
-//                    buttonTap = 2;
-//                    Red = true;
-//                    Blue = false;
-//                    Green = false;
-//                    Orange = false;
-//                    Yellow = false;
-//                    Grey = false;
-//                    LTGreen = false;
-//                    Purple = false;
-//                    original = false;
-//                    Snackbar.make(v, "Colour red was selected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    Log.d(TAG, "onClick: " + Red + "Red is clicked");
-//                } else if (buttonTap == 2) {
-//                    Snackbar.make(v, "Colour red was unselected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    buttonTap = 0;
-//                    Red = false;
-//                    Log.d(TAG, "onClick: " + Red + "Red is clicked");
-//                }
                 break;
 
             case R.id.ib_Purple:
@@ -352,33 +185,12 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
                         Snackbar.LENGTH_LONG)
                         .show();
                 Log.d(TAG, "onClick: " + Purple + "purple is clicked");
-//                if (buttonTap == 0) {
-//                    buttonTap = 2;
-//                    Purple = true;
-//                    Blue = false;
-//                    Red = false;
-//                    Green = false;
-//                    Orange = false;
-//                    Yellow = false;
-//                    Grey = false;
-//                    LTGreen = false;
-//                    original = false;
-//                    Snackbar.make(v, "Colour purple was selected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    Log.d(TAG, "onClick: " + Purple + "purple is clicked");
-//                } else if (buttonTap == 2) {
-//                    Snackbar.make(v, "Colour purple was unselected, " + "\n to continue press the confirm button",
-//                            Snackbar.LENGTH_LONG)
-//                            .show();
-//                    buttonTap = 0;
-//                    Purple = false;
-//                    Log.d(TAG, "onClick: " + Purple + "Purple is clicked");
-//                }
+
                 break;
 
             case R.id.confirm_BTN:
                 moveData();
+
                 break;
 
             case R.id.reset_BTN:
@@ -395,6 +207,7 @@ public class BackgroundColours extends AppCompatActivity implements View.OnClick
                 LTGreen = false;
                 Purple = false;
                 Log.d(TAG, "onClick: " + original + "reset is pressed");
+
                 break;
         }
     }

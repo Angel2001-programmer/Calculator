@@ -3,10 +3,6 @@ package com.timbuchalka.calculator;
 import android.app.Activity;
 import android.content.Intent;
 
-import androidx.appcompat.app.AppCompatDelegate;
-
-import com.timbuchalka.calculator.databinding.ActivityMainBinding;
-
 public class Utils {
     private static int sTheme;
     public final static int THEME_DEFAULT = 0;

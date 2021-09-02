@@ -1,21 +1,13 @@
 package com.timbuchalka.calculator.ui.settings;
 
-import static android.content.Context.MODE_PRIVATE;
-
-import static com.timbuchalka.calculator.Utils.THEME_DEFAULT;
-
-import android.app.UiModeManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,18 +19,15 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.snackbar.Snackbar;
 import com.timbuchalka.calculator.BackgroundColours;
 import com.timbuchalka.calculator.MainActivity;
-import com.timbuchalka.calculator.R;
 import com.timbuchalka.calculator.Utils;
 import com.timbuchalka.calculator.databinding.FragmentSettingsBinding;
 
-import java.util.Objects;
 
 public class SettingsFragment extends Fragment {
 
     private SettingsViewModel SettingsViewModel;
     private FragmentSettingsBinding binding;
     private static final String TAG = "SettingsFragment";
-    boolean NightMode = false;
     SharedPreferences mSharedPreferences = null;
     boolean saveState = false;
 
