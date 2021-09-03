@@ -7,13 +7,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "DatabaseHelper";
-
     private static final String TABLE_NAME = "calculation_table";
     private static final String COL1 = "ID";
     private static final String COL2 = "name";
+    List<Calculation> calculationList = new ArrayList<Calculation>();
+
 
     public DatabaseHelper(Context context) {
         super(context, TABLE_NAME, null, 1);
@@ -28,6 +33,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+//        for (Calculation table : calculationList) {
+//            String dropQuery = "DROP TABLE IF EXISTS " + TABLE_NAME;
+//            db.execSQL(dropQuery);
+//        }
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
@@ -48,10 +57,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor getData() {
+    public List<Calculation> getAllData() {
+//        List<Calculation> calculationList = new ArrayList<Calculation>();
+        String selectQuery = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME;
-        Cursor data = db.rawQuery(query, null);
-        return data;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Calculation calculation = new Calculation();
+                calculation.setValue0(cursor.getString(1));
+                calculationList.add(calculation);
+            } while (cursor.moveToNext());
+        }
+
+        Log.d(TAG, "getAllData: " + calculationList.toString());
+
+        return calculationList;
     }
+
 }

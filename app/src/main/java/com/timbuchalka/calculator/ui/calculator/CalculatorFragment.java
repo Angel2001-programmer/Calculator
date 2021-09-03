@@ -41,10 +41,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     private double num1, num2;
     Number number;
     int integer, buttonTap;
-    DatabaseReference reference;
     DatabaseHelper mDatabaseHelper;
     Calculation mCalculation;
-    String newEntry = "";
 
     Boolean Addition = false, Subtraction = false, Multiplication = false, Division = false;
     private static final String TAG = "MainActivity";
@@ -85,11 +83,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         binding.btnDivide.setOnClickListener(this);
         binding.btnEquals.setOnClickListener(this);
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Calculation");
-        mDatabaseHelper = new DatabaseHelper(getActivity().Calcul);
-
+        mDatabaseHelper = new DatabaseHelper(getParentFragment().getContext());
         mCalculation = new Calculation();
-        onResume();
 
         binding.editTextResults.addTextChangedListener(new TextWatcher() {
             @Override
@@ -215,7 +210,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 break;
 
             case R.id.btnMinus:
-
                 if (buttonTap == 0) {
                     buttonTap = 2;
                     getNumberFromText(append1);
@@ -290,7 +284,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 calculation2 = append2;
                 Log.d(TAG, "Value2: " + append2);
                 calLogic();
-                enableButtons();
                 break;
 
             default:
@@ -314,12 +307,12 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
             if (sum == (int) sum) {
                 checkInteger(result, sum);
                 String calculation = calculation1 + " + " + calculation2 + " = " + yourFormattedString;
-                database(calculation, newEntry);
+                database(calculation);
 
             } else {
                 setText(result);
                 String calculation = calculation1 + " + " + calculation2 + " = " + result;
-                database(calculation, newEntry);
+                database(calculation);
 
             }
 
@@ -333,11 +326,11 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
             if (sum == (int) sum) {
                 checkInteger(result, sum);
                 String calculation = calculation1 + " - " + calculation2 + " = " + yourFormattedString;
-                database(calculation, newEntry);
+                database(calculation);
             } else {
                 setText(result);
                 String calculation = calculation1 + " - " + calculation2 + " = " + result;
-                database(calculation, newEntry);
+                database(calculation);
             }
 
         } else if (Multiplication) {
@@ -350,11 +343,11 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
             if (sum == (int) sum) {
                 checkInteger(result, sum);
                 String calculation = calculation1 + " X " + calculation2 + " = " + yourFormattedString;
-                database(calculation, newEntry);
+                database(calculation);
             } else {
                 setText(result);
                 String calculation = calculation1 + " X " + calculation2 + " = " + result;
-                database(calculation, newEntry);
+                database(calculation);
             }
 
         } else if (Division) {
@@ -367,33 +360,14 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
             if (sum == (int) sum) {
                 checkInteger(result, sum);
                 String calculation = calculation1 + " ÷ " + calculation2 + " = " + yourFormattedString;
-                database(calculation, newEntry);
+                database(calculation);
             } else {
                 setText(result);
                 String calculation = calculation1 + " ÷ " + calculation2 + " = " + result;
-                database(calculation, newEntry);
+                database(calculation);
                 onPause();
             }
         }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        Log.d(TAG, "onResume: called");
-        reference = FirebaseDatabase.getInstance().getReference("Calculation");
-        reference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Log.d(TAG, "onComplete: " + "Database: data is removed.");
-                } else {
-                    Log.d(TAG, "onFail: " + "Database: failed to delete data.");
-
-                }
-            }
-        });
     }
 
     private double getDoubleFromString1(String append2) throws ParseException {
@@ -422,30 +396,12 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
     public void idkwhattonameyou(String result) {
         Log.d(TAG, "Value2: " + result);
-
         try {
             double realNumber = getDoubleFromString2(result);
             Log.d(TAG, "Value2: " + realNumber);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-    }
-
-    public void database(String calculation, String newEntry) {
-        Cursor cursor = mDatabaseHelper.read
-
-
-        if (binding.editTextResults.length() != 0) {
-            AddData(newEntry);
-            binding.editTextResults.setText("");
-        } else {
-            Log.d(TAG, "database: " + "Textfield empty");
-        }
-
-        Log.d(TAG, "Calculation: " + calculation);
-        mCalculation.setValue0(calculation);
-        reference.push().setValue(mCalculation);
-        Log.d(TAG, "Database: " + CalculatorFragment.this + "data inserted successfully");
     }
 
     public void setText(String result) {
@@ -462,20 +418,23 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         binding.editTextResults.setText(String.valueOf(integer));
     }
 
-    public void enableButtons() {
-        binding.btnAdd.setEnabled(true);
-        binding.btnMinus.setEnabled(true);
-        binding.btnDivide.setEnabled(true);
-        binding.btnMultiply.setEnabled(true);
-    }
-
     public void AddData(String newEntry) {
         boolean insertData = mDatabaseHelper.addData(newEntry);
-
         if (insertData) {
             Log.d(TAG, "AddData: " + "Data Successfully Inserted!");
         } else {
             Log.d(TAG, "AddData: " + "Something went wrong");
         }
+    }
+
+    public void database(String calculation) {
+        mCalculation.setValue0(calculation);
+        if (calculation.length() != 0) {
+            AddData(calculation);
+        } else {
+            Log.d(TAG, "database: " + "Textfield empty");
+        }
+
+        Log.d(TAG, "Calculation: " + calculation);
     }
 }

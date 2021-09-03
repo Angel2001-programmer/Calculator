@@ -15,12 +15,15 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.timbuchalka.calculator.databinding.ActivityMainBinding;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
     private ActivityMainBinding binding;
+    private static final String TABLE_NAME = "calculation_table";
     boolean Red, Blue, Green, Orange, Yellow, Grey, LTGreen, Purple, original, saveState;
     SharedPreferences mSharedPreferences = null;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,10 @@ public class MainActivity extends AppCompatActivity {
         saveState = getIntent().getBooleanExtra("saveState", false);
 
         mSharedPreferences = getSharedPreferences("night", 0);
+        db = new DatabaseHelper(this);
         Boolean saveState = mSharedPreferences.getBoolean("night_mode", false);
+        this.deleteDatabase(TABLE_NAME);
+
         if (saveState) {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
@@ -84,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (original) {
             Utils.changeToTheme(this, Utils.THEME_DEFAULT);
         }
-
     }
 }
 
