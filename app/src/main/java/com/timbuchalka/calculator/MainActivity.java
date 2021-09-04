@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         mSharedPreferences = getSharedPreferences("night", 0);
         db = new DatabaseHelper(this);
-        Boolean saveState = mSharedPreferences.getBoolean("night_mode", false);
+        boolean saveState = mSharedPreferences.getBoolean("night_mode", false);
         this.deleteDatabase(TABLE_NAME);
 
         if (saveState) {
@@ -92,6 +92,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-
-
-

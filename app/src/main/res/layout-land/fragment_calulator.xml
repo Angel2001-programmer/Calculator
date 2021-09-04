@@ -33,7 +33,9 @@
         app:layout_constraintEnd_toEndOf="@+id/tableLayout7"
         app:layout_constraintStart_toStartOf="@+id/tableLayout"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="0" />
+        tools:text="0"
+        android:importantForAutofill="no"
+        tools:ignore="LabelFor" />
 
 
     <TableLayout
@@ -53,32 +55,35 @@
                 android:id="@+id/btnAC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custombutton"
-                android:text="AC"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/restart"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btnAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custombutton"
-                android:text="+"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/Addition"
                 android:textColor="?android:textColorPrimary"
 
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btnMinus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custombutton"
-                android:text="-"
+                android:background="@drawable/custom_button"
+                android:text="@string/Subtraction"
                 android:textColor="?android:textColorPrimary"
 
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                tools:ignore="ButtonStyle" />
 
         </TableRow>
 
@@ -91,41 +96,41 @@
                 android:id="@+id/btn9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custombutton"
-                android:text="9"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/Number9"
                 android:textColor="?android:textColorPrimary"
 
                 android:textSize="25sp"
 
-                />
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custombutton"
-                android:text="8"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/Number8"
                 android:textColor="?android:textColorPrimary"
 
                 android:textSize="25sp"
 
 
-                />
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custombutton"
-                android:text="7"
+                android:background="@drawable/custom_button"
+                android:text="@string/Number7"
                 android:textColor="?android:textColorPrimary"
 
                 android:textSize="25sp"
 
 
-                />
+                tools:ignore="ButtonStyle" />
 
         </TableRow>
 
@@ -138,38 +143,38 @@
                 android:id="@+id/btn6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custombutton"
-                android:text="6"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/Number6"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="25sp"
 
-                />
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custombutton"
-                android:text="5"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/Number5"
                 android:textColor="?android:textColorPrimary"
 
                 android:textSize="25sp"
 
-                />
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custombutton"
-                android:text="4"
+                android:background="@drawable/custom_button"
+                android:text="@string/Number4"
                 android:textColor="?android:textColorPrimary"
 
                 android:textSize="25sp"
 
-                />
+                tools:ignore="ButtonStyle" />
         </TableRow>
 
     </TableLayout>
@@ -190,39 +195,39 @@
                 android:id="@+id/btn3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custombutton"
-                android:text="3"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/Number3"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="25sp"
 
 
-                />
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custombutton"
-                android:text="2"
-                android:layout_marginRight="10dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/Number2"
+                android:layout_marginEnd="10dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="25sp"
 
 
-                />
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custombutton"
-                android:text="1"
+                android:background="@drawable/custom_button"
+                android:text="@string/Number1"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="25sp"
 
 
-                />
+                tools:ignore="ButtonStyle" />
 
         </TableRow>
 
@@ -235,33 +240,36 @@
                 android:id="@+id/btn0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custombutton"
-                android:text="0"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/Number0"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btnDot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custombutton"
-                android:text="."
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/Dot"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btnMultiply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custombutton"
-                android:text="X"
+                android:background="@drawable/custom_button"
+                android:text="@string/Multiplication"
                 android:textColor="?android:textColorPrimary"
 
                 android:textSize="25sp"
                 tools:layout_editor_absoluteX="390dp"
-                tools:layout_editor_absoluteY="303dp" />
+                tools:layout_editor_absoluteY="303dp"
+                tools:ignore="ButtonStyle" />
 
         </TableRow>
 
@@ -274,24 +282,25 @@
                 android:id="@+id/btnDivide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custombutton"
-                android:text="÷"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/Division"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="25sp"
 
 
-                />
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btnEquals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
-                android:background="@drawable/custombutton"
-                android:text="="
+                android:background="@drawable/custom_button"
+                android:text="@string/Equals_Symbol"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                tools:ignore="ButtonStyle" />
 
         </TableRow>
 

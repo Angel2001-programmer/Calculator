@@ -66,7 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Calculation calculation = new Calculation();
-                calculation.setValue0(cursor.getString(1));
+                calculation.setname(cursor.getString(1));
                 calculationList.add(calculation);
             } while (cursor.moveToNext());
         }

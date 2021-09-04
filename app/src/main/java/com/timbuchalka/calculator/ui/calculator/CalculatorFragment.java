@@ -1,6 +1,5 @@
 package com.timbuchalka.calculator.ui.calculator;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,13 +15,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.timbuchalka.calculator.DatabaseHelper;
-import com.timbuchalka.calculator.MainActivity;
 import com.timbuchalka.calculator.R;
 import com.timbuchalka.calculator.Utils;
 import com.timbuchalka.calculator.Calculation;
@@ -35,7 +30,6 @@ import java.util.Locale;
 
 public class CalculatorFragment extends Fragment implements View.OnClickListener {
 
-    private CalculatorViewModel calculatorViewModel;
     private FragmentCalulatorBinding binding;
     private String append2, calculation1, calculation2, yourFormattedString;
     private double num1, num2;
@@ -49,9 +43,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Utils.onActivityCreateSetTheme(getActivity());
-        calculatorViewModel =
-                new ViewModelProvider(this).get(CalculatorViewModel.class);
+        Utils.onActivityCreateSetTheme(requireActivity());
+        CalculatorViewModel calculatorViewModel = new ViewModelProvider(this).get(CalculatorViewModel.class);
 
         binding = FragmentCalulatorBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -124,6 +117,11 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 // TODO Auto-generated method stub
             }
         });
+
+        binding.editTextResults.setCursorVisible(false);
+        binding.editTextResults.setFocusableInTouchMode(false);
+        binding.editTextResults.setFocusable(false);
+
         return root;
     }
 
@@ -300,7 +298,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         if (Addition) {
             sum = num1 += num2;
             result = String.valueOf(sum);
-            idkwhattonameyou(result);
+            convertNumber(result);
             Addition = false;
             Log.d(TAG, "calLogic: Subtraction " + false);
 
@@ -319,7 +317,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         } else if (Subtraction) {
             sum = num1 -= num2;
             result = String.valueOf(sum);
-            idkwhattonameyou(result);
+            convertNumber(result);
             Subtraction = false;
             Log.d(TAG, "calLogic: Subtraction " + false);
 
@@ -336,7 +334,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         } else if (Multiplication) {
             sum = num1 *= num2;
             result = String.valueOf(sum);
-            idkwhattonameyou(result);
+            convertNumber(result);
             Multiplication = false;
             Log.d(TAG, "calLogic: Multiplication " + false);
 
@@ -353,7 +351,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         } else if (Division) {
             sum = num1 / num2;
             result = String.valueOf(sum);
-            idkwhattonameyou(result);
+            convertNumber(result);
             Division = false;
             Log.d(TAG, "calLogic: Division " + false);
 
@@ -394,7 +392,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         binding.editTextResults.setText("");
     }
 
-    public void idkwhattonameyou(String result) {
+    public void convertNumber(String result) {
         Log.d(TAG, "Value2: " + result);
         try {
             double realNumber = getDoubleFromString2(result);
@@ -428,7 +426,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     }
 
     public void database(String calculation) {
-        mCalculation.setValue0(calculation);
+        mCalculation.setname(calculation);
         if (calculation.length() != 0) {
             AddData(calculation);
         } else {

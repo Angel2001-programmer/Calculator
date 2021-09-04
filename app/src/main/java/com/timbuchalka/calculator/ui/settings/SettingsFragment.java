@@ -2,6 +2,7 @@ package com.timbuchalka.calculator.ui.settings;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,9 +87,8 @@ public class SettingsFragment extends Fragment {
         binding.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 mSharedPreferences = getActivity().getSharedPreferences("night", 0);
-                Boolean saveState = mSharedPreferences.getBoolean("night_mode", true);
+                Boolean saveState = mSharedPreferences.getBoolean("night_mode", false);
                 if (saveState) {
                     Snackbar.make(v, "Background button cannot be clicked because, " + "\n you enabled darkmode.",
                             Snackbar.LENGTH_LONG)
@@ -100,6 +100,12 @@ public class SettingsFragment extends Fragment {
                 }
             }
         });
+
+        if (Build.VERSION.SDK_INT > 23) {
+            binding.textView.setVisibility(View.VISIBLE);
+        } else {
+            binding.textView.setVisibility(View.INVISIBLE);
+        }
 
         Intent intent = new Intent(getActivity(), MainActivity.class);
         intent.putExtra("saveState", saveState);

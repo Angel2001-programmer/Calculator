@@ -32,7 +32,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<com.timbuchalka.calcul
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.tvCalculation.setText(mList.get(position).getValue0());
+        holder.tvCalculation.setText(mList.get(position).getname());
     }
 
     @Override

@@ -13,5 +13,22 @@
     <string name="title_activity_test">test</string>
     <string name="title_activity_background">activity_background_colours</string>
     <string name="string_please_select_a_colour">Please select a colour</string>
-    <string name="background_colours">Background Colours</string>/>
+    <string name="background_colours">Background Colours</string>
+    <string name="Equals_Symbol">=</string>
+    <string name="restart">AC</string>
+    <string name="Addition">+</string>
+    <string name="Subtraction">-</string>
+    <string name="Multiplication">X</string>
+    <string name="Number9">9</string>
+    <string name="Number8">8</string>
+    <string name="Number7">7</string>
+    <string name="Division">÷</string>
+    <string name="Number6">6</string>
+    <string name="Number5">5</string>
+    <string name="Number4">4</string>
+    <string name="Dot">.</string>
+    <string name="Number3">3</string>
+    <string name="Number2">2</string>
+    <string name="Number1">1</string>
+    <string name="Number0">0</string>/>
 </resources>

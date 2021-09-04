@@ -1,17 +1,17 @@
 package com.timbuchalka.calculator;
 
 public class Calculation {
-    String value0;
+    String name;
 
     public Calculation() {
-        this.value0 = value0;
+        this.name = name;
     }
 
-    public String getValue0() {
-        return value0;
+    public String getname() {
+        return name;
     }
 
-    public void setValue0(String value0) {
-        this.value0 = value0;
+    public void setname(String name) {
+        this.name = name;
     }
 }

@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.timbuchalka.calculator.databinding.ActivityBackgroundColoursBinding;
-import com.timbuchalka.calculator.ui.settings.SettingsFragment;
-
 
 public class BackgroundColours extends AppCompatActivity implements View.OnClickListener {
     ActivityBackgroundColoursBinding binding;
