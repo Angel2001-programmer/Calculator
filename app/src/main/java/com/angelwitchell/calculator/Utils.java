@@ -1,4 +1,4 @@
-package com.timbuchalka.calculator;
+package com.angelwitchell.calculator;
 
 import android.app.Activity;
 import android.content.Intent;

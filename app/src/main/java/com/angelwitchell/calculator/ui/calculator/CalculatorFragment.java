@@ -1,4 +1,4 @@
-package com.timbuchalka.calculator.ui.calculator;
+package com.angelwitchell.calculator.ui.calculator;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -17,11 +17,11 @@ import androidx.lifecycle.ViewModelProvider;
 
 
 import com.google.android.material.snackbar.Snackbar;
-import com.timbuchalka.calculator.DatabaseHelper;
-import com.timbuchalka.calculator.R;
-import com.timbuchalka.calculator.Utils;
-import com.timbuchalka.calculator.Calculation;
-import com.timbuchalka.calculator.databinding.FragmentCalulatorBinding;
+import com.angelwitchell.calculator.DatabaseHelper;
+import com.angelwitchell.calculator.R;
+import com.angelwitchell.calculator.Utils;
+import com.angelwitchell.calculator.Calculation;
+import com.angelwitchell.calculator.databinding.FragmentCalulatorBinding;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

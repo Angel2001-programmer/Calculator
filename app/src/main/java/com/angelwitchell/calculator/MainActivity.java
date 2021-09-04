@@ -1,4 +1,4 @@
-package com.timbuchalka.calculator;
+package com.angelwitchell.calculator;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,9 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.timbuchalka.calculator.databinding.ActivityMainBinding;
-
-import java.io.File;
+import com.angelwitchell.calculator.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 

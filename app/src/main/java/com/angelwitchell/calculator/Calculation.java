@@ -1,4 +1,4 @@
-package com.timbuchalka.calculator;
+package com.angelwitchell.calculator;
 
 public class Calculation {
     String name;

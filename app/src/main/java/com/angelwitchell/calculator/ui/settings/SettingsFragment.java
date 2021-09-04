@@ -1,4 +1,4 @@
-package com.timbuchalka.calculator.ui.settings;
+package com.angelwitchell.calculator.ui.settings;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,10 +18,10 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.timbuchalka.calculator.BackgroundColours;
-import com.timbuchalka.calculator.MainActivity;
-import com.timbuchalka.calculator.Utils;
-import com.timbuchalka.calculator.databinding.FragmentSettingsBinding;
+import com.angelwitchell.calculator.BackgroundColours;
+import com.angelwitchell.calculator.MainActivity;
+import com.angelwitchell.calculator.Utils;
+import com.angelwitchell.calculator.databinding.FragmentSettingsBinding;
 
 
 public class SettingsFragment extends Fragment {

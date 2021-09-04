@@ -1,4 +1,4 @@
-package com.timbuchalka.calculator;
+package com.angelwitchell.calculator;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.timbuchalka.calculator.databinding.ActivityBackgroundColoursBinding;
+import com.angelwitchell.calculator.databinding.ActivityBackgroundColoursBinding;
 
 public class BackgroundColours extends AppCompatActivity implements View.OnClickListener {
     ActivityBackgroundColoursBinding binding;

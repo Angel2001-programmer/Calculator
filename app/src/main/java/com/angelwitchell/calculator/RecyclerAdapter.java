@@ -1,4 +1,4 @@
-package com.timbuchalka.calculator;
+package com.angelwitchell.calculator;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 
-public class RecyclerAdapter extends RecyclerView.Adapter<com.timbuchalka.calculator.RecyclerAdapter.MyViewHolder> {
+public class RecyclerAdapter extends RecyclerView.Adapter<com.angelwitchell.calculator.RecyclerAdapter.MyViewHolder> {
 
     public static final String TAG = "RecyclerAdapter";
     Context mContext;

@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_calculator"
-        android:name="com.timbuchalka.calculator.ui.calculator.CalculatorFragment"
+        android:name="com.angelwitchell.calculator.ui.calculator.CalculatorFragment"
         android:label="@string/title_calculator"
         tools:layout="@layout/fragment_calulator" />
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.timbuchalka.calculator.ui.history.HistoryFragment"
+        android:name="com.angelwitchell.calculator.ui.history.HistoryFragment"
         android:label="@string/title_history"
         tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.timbuchalka.calculator.ui.settings.SettingsFragment"
+        android:name="com.angelwitchell.calculator.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>

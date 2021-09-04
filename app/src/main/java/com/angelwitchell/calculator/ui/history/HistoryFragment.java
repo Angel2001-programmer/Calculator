@@ -1,4 +1,4 @@
-package com.timbuchalka.calculator.ui.history;
+package com.angelwitchell.calculator.ui.history;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +11,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.timbuchalka.calculator.Calculation;
-import com.timbuchalka.calculator.DatabaseHelper;
-import com.timbuchalka.calculator.RecyclerAdapter;
-import com.timbuchalka.calculator.R;
-import com.timbuchalka.calculator.databinding.FragmentHistoryBinding;
+import com.angelwitchell.calculator.Calculation;
+import com.angelwitchell.calculator.DatabaseHelper;
+import com.angelwitchell.calculator.RecyclerAdapter;
+import com.angelwitchell.calculator.R;
+import com.angelwitchell.calculator.databinding.FragmentHistoryBinding;
 
 import java.util.ArrayList;
 

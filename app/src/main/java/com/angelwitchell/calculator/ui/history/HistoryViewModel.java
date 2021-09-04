@@ -1,14 +1,14 @@
-package com.timbuchalka.calculator.ui.settings;
+package com.angelwitchell.calculator.ui.history;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SettingsViewModel extends ViewModel {
+public class HistoryViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SettingsViewModel() {
+    public HistoryViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is notifications fragment");
     }
