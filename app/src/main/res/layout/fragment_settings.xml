@@ -36,14 +36,30 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/tvAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/about_app"
+                android:textColor="?android:textColorSecondary"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="56dp" />
+
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/switchNightmode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/night_mode"
-                android:textStyle="bold"
-                android:textSize="@dimen/_10sdp"
                 android:textColor="?android:textColorSecondary"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp" />
 
@@ -70,6 +86,7 @@
                     android:textSize="@dimen/_10sdp"
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="56dp" />
+
 
             </LinearLayout>
         </LinearLayout>

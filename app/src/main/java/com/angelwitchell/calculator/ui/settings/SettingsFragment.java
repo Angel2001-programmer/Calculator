@@ -17,11 +17,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.angelwitchell.calculator.AboutSection;
 import com.angelwitchell.calculator.BackgroundColours;
 import com.angelwitchell.calculator.MainActivity;
 import com.angelwitchell.calculator.Utils;
 import com.angelwitchell.calculator.databinding.FragmentSettingsBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class SettingsFragment extends Fragment {
@@ -109,6 +110,15 @@ public class SettingsFragment extends Fragment {
 
         Intent intent = new Intent(getActivity(), MainActivity.class);
         intent.putExtra("saveState", saveState);
+
+        binding.tvAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AboutSection.class);
+                startActivity(intent);
+            }
+        });
+
         return root;
     }
 

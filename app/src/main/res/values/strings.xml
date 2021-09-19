@@ -30,5 +30,11 @@
     <string name="Number3">3</string>
     <string name="Number2">2</string>
     <string name="Number1">1</string>
-    <string name="Number0">0</string>/>
+    <string name="Number0">0</string>
+    <string name="blue_background">Blue circle background choice.</string>
+    <string name="about_email">if you require assistance contact for support with this application Calculator@gmail.com</string>
+    <string name="about_copyright">Icon derived from <b>analog clock</b> at openclipart.org by <b>Anonymous</b></string>
+    <string name="about_app">About App</string>
+    <string name="versionNumber">\"Version Number: \"</string>
+    />
 </resources>
