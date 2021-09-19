@@ -13,27 +13,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.angelwitchell.calculator.Calculation;
 import com.angelwitchell.calculator.DatabaseHelper;
-import com.angelwitchell.calculator.RecyclerAdapter;
 import com.angelwitchell.calculator.R;
+import com.angelwitchell.calculator.RecyclerAdapter;
 import com.angelwitchell.calculator.databinding.FragmentHistoryBinding;
 
 import java.util.ArrayList;
 
 public class HistoryFragment extends Fragment {
 
-    private HistoryViewModel historyViewModel;
-    private FragmentHistoryBinding binding;
-
     RecyclerView mRecyclerView;
-
     RecyclerAdapter mRecyclerAdapter;
     ArrayList<Calculation> mList;
     DatabaseHelper db;
+    private FragmentHistoryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        historyViewModel =
-                new ViewModelProvider(this).get(HistoryViewModel.class);
+        HistoryViewModel historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
 
         binding = FragmentHistoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -44,7 +40,7 @@ public class HistoryFragment extends Fragment {
 
 
         db = new DatabaseHelper(getActivity());
-        mList = new ArrayList<Calculation>();
+        mList = new ArrayList<>();
         mList = (ArrayList<Calculation>) db.getAllData();
 
         mRecyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);

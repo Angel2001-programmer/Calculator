@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<com.angelwitchell.calculator.RecyclerAdapter.MyViewHolder> {
 
-    public static final String TAG = "RecyclerAdapter";
     Context mContext;
     ArrayList<Calculation> mList;
 

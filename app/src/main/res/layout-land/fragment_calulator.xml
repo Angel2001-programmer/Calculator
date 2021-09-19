@@ -26,6 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:minHeight="48dp"
         android:textAlignment="textEnd"
@@ -33,9 +34,8 @@
         app:layout_constraintEnd_toEndOf="@+id/tableLayout7"
         app:layout_constraintStart_toStartOf="@+id/tableLayout"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="0"
-        android:importantForAutofill="no"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        tools:text="0" />
 
 
     <TableLayout
@@ -208,9 +208,9 @@
                 android:id="@+id/btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/custom_button"
                 android:text="@string/Number2"
-                android:layout_marginEnd="10dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="25sp"
 
@@ -267,9 +267,9 @@
                 android:textColor="?android:textColorPrimary"
 
                 android:textSize="25sp"
+                tools:ignore="ButtonStyle"
                 tools:layout_editor_absoluteX="390dp"
-                tools:layout_editor_absoluteY="303dp"
-                tools:ignore="ButtonStyle" />
+                tools:layout_editor_absoluteY="303dp" />
 
         </TableRow>
 

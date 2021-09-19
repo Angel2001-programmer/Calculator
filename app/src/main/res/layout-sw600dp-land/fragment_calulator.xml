@@ -19,8 +19,8 @@
         app:layout_constraintEnd_toEndOf="@+id/tableLayout3"
         app:layout_constraintStart_toStartOf="@+id/tableLayout"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="0"
-        tools:ignore="Autofill,LabelFor" />
+        tools:ignore="Autofill,LabelFor"
+        tools:text="0" />
 
     <TextView
         android:id="@+id/text_calculator"
@@ -257,9 +257,9 @@
                 android:id="@+id/btn0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/custom_button"
                 android:text="@string/Number0"
-                android:layout_marginEnd="10dp"
 
                 android:textColor="?android:textColorPrimary"
                 android:textSize="50sp"

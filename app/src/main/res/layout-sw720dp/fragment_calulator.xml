@@ -12,6 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:minHeight="48dp"
         android:textAlignment="textEnd"
@@ -19,9 +20,8 @@
         app:layout_constraintEnd_toEndOf="@+id/tableLayout"
         app:layout_constraintStart_toStartOf="@+id/tableLayout"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        tools:text="0"
-        android:importantForAutofill="no"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        tools:text="0" />
 
     <TextView
         android:id="@+id/text_calculator"

@@ -7,12 +7,12 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.angelwitchell.calculator.databinding.ActivityBackgroundColoursBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 public class BackgroundColours extends AppCompatActivity implements View.OnClickListener {
-    ActivityBackgroundColoursBinding binding;
     private static final String TAG = "BCFragment";
+    ActivityBackgroundColoursBinding binding;
     boolean Blue = false, Red = false, Yellow = false, Green = false, LTGreen = false,
             Orange = false, Grey = false, Purple = false, original = false;
 

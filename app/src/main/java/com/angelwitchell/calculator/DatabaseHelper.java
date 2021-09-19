@@ -14,9 +14,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "DatabaseHelper";
     private static final String TABLE_NAME = "calculation_table";
-    private static final String COL1 = "ID";
     private static final String COL2 = "name";
-    List<Calculation> calculationList = new ArrayList<Calculation>();
+    List<Calculation> calculationList = new ArrayList<>();
 
 
     public DatabaseHelper(Context context) {
@@ -32,10 +31,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-//        for (Calculation table : calculationList) {
-//            String dropQuery = "DROP TABLE IF EXISTS " + TABLE_NAME;
-//            db.execSQL(dropQuery);
-//        }
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
@@ -49,16 +44,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
-        if (result == -1) {
-            return false;
-        } else {
-            return true;
-        }
+        return result != -1;
     }
 
     public List<Calculation> getAllData() {
 //        List<Calculation> calculationList = new ArrayList<Calculation>();
-        String selectQuery = "SELECT * FROM " + TABLE_NAME;
+        String selectQuery = String.format("SELECT * FROM %s", TABLE_NAME);
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -71,7 +62,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         Log.d(TAG, "getAllData: " + calculationList.toString());
-
+        cursor.close();
         return calculationList;
     }
 

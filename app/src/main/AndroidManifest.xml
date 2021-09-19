@@ -20,17 +20,17 @@
 
         <activity
             android:name="com.angelwitchell.calculator.BackgroundColours"
+            android:configChanges="orientation|keyboardHidden"
             android:label="@string/background_colours"
-            android:screenOrientation="fullSensor"
-            android:configChanges="orientation|keyboardHidden">
+            android:screenOrientation="fullSensor">
 
         </activity>
 
         <activity
             android:name="com.angelwitchell.calculator.AboutSection"
+            android:configChanges="orientation|keyboardHidden"
             android:label="@string/about_app"
-            android:screenOrientation="fullSensor"
-            android:configChanges="orientation|keyboardHidden">
+            android:screenOrientation="fullSensor">
 
         </activity>
     </application>

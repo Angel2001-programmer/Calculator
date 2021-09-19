@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 
 public class Utils {
-    private static int sTheme;
     public final static int THEME_DEFAULT = 0;
     public final static int THEME_RED_STYLES = 1;
     public final static int THEME_BLUE_STYLES = 2;
@@ -15,6 +14,7 @@ public class Utils {
     public final static int THEME_LIGHT_GREEN_STYLES = 7;
     public final static int THEME_PURPLE_STYLES = 8;
     public final static int THEME_DARKMODE = 9;
+    private static int sTheme;
 
     public static void changeToTheme(Activity activity, int theme) {
         sTheme = theme;

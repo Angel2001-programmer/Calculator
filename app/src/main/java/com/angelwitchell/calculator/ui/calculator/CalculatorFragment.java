@@ -10,18 +10,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-
-import com.google.android.material.snackbar.Snackbar;
+import com.angelwitchell.calculator.Calculation;
 import com.angelwitchell.calculator.DatabaseHelper;
 import com.angelwitchell.calculator.R;
 import com.angelwitchell.calculator.Utils;
-import com.angelwitchell.calculator.Calculation;
 import com.angelwitchell.calculator.databinding.FragmentCalulatorBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -30,16 +27,17 @@ import java.util.Locale;
 
 public class CalculatorFragment extends Fragment implements View.OnClickListener {
 
-    private FragmentCalulatorBinding binding;
-    private String append2, calculation1, calculation2, yourFormattedString;
-    private double num1, num2;
+    private static final String TAG = "MainActivity";
     Number number;
     int integer, buttonTap;
     DatabaseHelper mDatabaseHelper;
     Calculation mCalculation;
-
     Boolean Addition = false, Subtraction = false, Multiplication = false, Division = false;
-    private static final String TAG = "MainActivity";
+    private FragmentCalulatorBinding binding;
+    private String calculation1;
+    private String calculation2;
+    private String yourFormattedString;
+    private double num1, num2;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -50,12 +48,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         View root = binding.getRoot();
 
         final TextView textView = binding.textCalculator;
-        calculatorViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        calculatorViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         binding.btn0.setOnClickListener(this);
         binding.btn1.setOnClickListener(this);
@@ -76,6 +69,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         binding.btnDivide.setOnClickListener(this);
         binding.btnEquals.setOnClickListener(this);
 
+        assert getParentFragment() != null;
         mDatabaseHelper = new DatabaseHelper(getParentFragment().getContext());
         mCalculation = new Calculation();
 
@@ -98,13 +92,13 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
                 try {
                     String givenString = s.toString();
-                    Long longval;
+                    Long long_Val;
                     if (givenString.contains(",")) {
                         givenString = givenString.replaceAll(",", "");
                     }
-                    longval = Long.parseLong(givenString);
+                    long_Val = Long.parseLong(givenString);
                     DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-                    String formattedString = decimalFormat.format(longval);
+                    String formattedString = decimalFormat.format(long_Val);
                     binding.editTextResults.setText(formattedString);
 
                 } catch (NumberFormatException numberFormatException) {
@@ -176,13 +170,14 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.btnAC:
                 binding.editTextResults.setText("");
-                append2 = null;
+                String append2;
                 calculation1 = null;
                 calculation2 = null;
                 binding.btnAdd.setEnabled(true);
                 binding.btnMinus.setEnabled(true);
                 binding.btnDivide.setEnabled(true);
                 binding.btnMultiply.setEnabled(true);
+
                 Snackbar.make(v, "Calculator is reset.",
                         Snackbar.LENGTH_SHORT).show();
                 break;
@@ -285,7 +280,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 break;
 
             default:
-                Log.d(TAG, "onClick: button is not vaild");
+                Log.d(TAG, "onClick: button is not valid");
                 Snackbar.make(v, "Please reset button and redo calculation.",
                         Snackbar.LENGTH_SHORT).show();
                 break;
@@ -369,16 +364,18 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     }
 
     private double getDoubleFromString1(String append2) throws ParseException {
-        String newvalue1 = append2.replace(",", "");
+        String new_value1 = append2.replace(",", "");
         NumberFormat formatException = NumberFormat.getInstance(Locale.getDefault());
-        number = formatException.parse(newvalue1);
+        number = formatException.parse(new_value1);
+        assert number != null;
         return number.doubleValue();
     }
 
     private double getDoubleFromString2(String result) throws ParseException {
-        String newvalue2 = result.replace(",", "");
+        String new_value2 = result.replace(",", "");
         NumberFormat formatException = NumberFormat.getInstance(Locale.getDefault());
-        number = formatException.parse(newvalue2);
+        number = formatException.parse(new_value2);
+        assert number != null;
         return number.doubleValue();
     }
 
@@ -430,7 +427,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         if (calculation.length() != 0) {
             AddData(calculation);
         } else {
-            Log.d(TAG, "database: " + "Textfield empty");
+            Log.d(TAG, "database: " + "Textfield is empty");
         }
 
         Log.d(TAG, "Calculation: " + calculation);
