@@ -11,7 +11,8 @@
         android:theme="@style/Theme.Calculator">
         <activity
             android:name="com.angelwitchell.calculator.MainActivity"
-            android:label="@string/title_activity_main">
+            android:label="@string/title_activity_main"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
